@@ -1,0 +1,13 @@
+Configuring random-shuffle-0.0.4...
+Preprocessing library for random-shuffle-0.0.4..
+Building library for random-shuffle-0.0.4..
+[1 of 1] Compiling System.Random.Shuffle ( src/System/Random/Shuffle.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/System/Random/Shuffle.o )
+
+[;1msrc/System/Random/Shuffle.hs:59:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wtabs[0m[0m[;1m][0m[0m[;1m
+    Tab character found here, and in 10 further locations.
+    Please use spaces instead.[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m59 |[0m[0m [;1m[35m        [0m[0m  in b : (shuffleTree rest rs)
+[;1m[34m   |[0m[0m[;1m[35m ^^^^^^^^[0m[0m
+[0m[0m[0mInstalling library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/random-shuffle-0.0.4-DFIfnU2g7FMDj7c4JqpKc8
+Registering library for random-shuffle-0.0.4..

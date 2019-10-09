@@ -1,0 +1,21 @@
+Configuring network-simple-0.4.5...
+Preprocessing library for network-simple-0.4.5..
+Building library for network-simple-0.4.5..
+[1 of 2] Compiling Network.Simple.Internal ( src/Network/Simple/Internal.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Simple/Internal.o )
+
+[;1msrc/Network/Simple/Internal.hs:24:1: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    Module ‘Network.BSD’ is deprecated:
+      This platform dependent module is no longer supported.[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m24 |[0m[0m [;1m[35mimport qualified Network.BSD as NS (getServicePortNumber)[0m[0m
+[;1m[34m   |[0m[0m[;1m[35m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1msrc/Network/Simple/Internal.hs:87:14: [;1m[35mwarning:[0m[0m[;1m [[;1m[35m-Wdeprecations[0m[0m[;1m][0m[0m[;1m
+    In the use of ‘getServicePortNumber’ (imported from Network.BSD):
+    Deprecated: "This platform dependent module is no longer supported."[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m87 |[0m[0m   Nothing -> [;1m[35mNS.getServicePortNumber[0m[0m sn
+[;1m[34m   |[0m[0m[;1m[35m              ^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m[2 of 2] Compiling Network.Simple.TCP ( src/Network/Simple/TCP.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Simple/TCP.o )
+Installing library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/network-simple-0.4.5-4zm5v2SE1lO19VqG0Q1XJc
+Registering library for network-simple-0.4.5..

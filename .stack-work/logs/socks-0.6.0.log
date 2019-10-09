@@ -1,0 +1,12 @@
+Configuring socks-0.6.0...
+Preprocessing library for socks-0.6.0..
+Building library for socks-0.6.0..
+[1 of 7] Compiling Network.Socks5.Parse ( Network/Socks5/Parse.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5/Parse.o )
+[2 of 7] Compiling Network.Socks5.Types ( Network/Socks5/Types.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5/Types.o )
+[3 of 7] Compiling Network.Socks5.Conf ( Network/Socks5/Conf.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5/Conf.o )
+[4 of 7] Compiling Network.Socks5.Wire ( Network/Socks5/Wire.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5/Wire.o )
+[5 of 7] Compiling Network.Socks5.Command ( Network/Socks5/Command.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5/Command.o )
+[6 of 7] Compiling Network.Socks5.Lowlevel ( Network/Socks5/Lowlevel.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5/Lowlevel.o )
+[7 of 7] Compiling Network.Socks5   ( Network/Socks5.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Network/Socks5.o )
+Installing library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/socks-0.6.0-BxvMxm1eqdsG1MVqfsa7vH
+Registering library for socks-0.6.0..

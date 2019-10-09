@@ -1,0 +1,855 @@
+
+==================== FINAL INTERFACE ====================
+2019-09-21 19:07:20.873066 UTC
+
+interface hw3-0.1.0.0-83r239n2GbFIyVIthhyr0Y:BashInterpreter 8065
+  interface hash: 59e655f02f30d316d451df7ad8b772eb
+  ABI hash: b7d61706b8b59a97b280544f6d144842
+  export-list hash: 312b0f8a3802ac819ad3dc423a0e52ee
+  orphan hash: f3f9734cb53409febe2dde6b8b96bb74
+  flag hash: 304d54461d9c82d343c8527b06b0f850
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  BashInterpreter.run
+module dependencies: BashParser
+package dependencies: array-0.5.3.0 base-4.12.0.0 binary-0.8.6.0
+                      bytestring-0.10.8.2 case-insensitive-1.2.0.11 containers-0.6.0.1
+                      deepseq-1.4.4.0 directory-1.3.3.0 filepath-1.4.2.1 ghc-prim-0.5.3
+                      hashable-1.2.7.0 integer-gmp-1.0.2.0 megaparsec-7.0.5 mtl-2.2.2
+                      parser-combinators-1.1.0 text-1.2.3.1 time-1.8.0.2
+                      transformers-0.5.6.2 unix-2.7.2.2 unordered-containers-0.2.10.0
+orphans: hashable-1.2.7.0:Data.Hashable.Generic
+         transformers-0.5.6.2:Control.Monad.Trans.Error
+         text-1.2.3.1:Data.Text.Lazy text-1.2.3.1:Data.Text
+         binary-0.8.6.0:Data.Binary.Generic
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         text-1.2.3.1:Data.Text.Show time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: base-4.12.0.0:Control.Applicative
+                         base-4.12.0.0:Data.Complex base-4.12.0.0:Data.Functor.Compose
+                         base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         megaparsec-7.0.5:Text.Megaparsec.Error
+                         megaparsec-7.0.5:Text.Megaparsec.Pos
+                         megaparsec-7.0.5:Text.Megaparsec.State
+                         megaparsec-7.0.5:Text.Megaparsec.Stream text-1.2.3.1:Data.Text
+                         text-1.2.3.1:Data.Text.Lazy
+                         unordered-containers-0.2.10.0:Data.HashMap.Base
+                         unordered-containers-0.2.10.0:Data.HashSet.Base
+import  -/  base-4.12.0.0:Control.Monad.IO.Class e96805f9d79f75be66a0d44eb83064c1
+import  -/  base-4.12.0.0:Data.Either 423bee738f25e5ee983d072216009be8
+import  -/  base-4.12.0.0:Data.OldList e931cf456dc87f11ee6e6fb153bca23e
+import  -/  base-4.12.0.0:GHC.Base c00b75f0b052d05c55ba6a4dd1c63b26
+import  -/  base-4.12.0.0:GHC.Err ea5e313ef4146b40b5d8b27aa168e736
+import  -/  base-4.12.0.0:GHC.List 4014a3c8a3b7c31c8325f6bcf1feea4a
+import  -/  base-4.12.0.0:GHC.Num c2039f03637c68f47b0bbff4c18ec616
+import  -/  base-4.12.0.0:GHC.Show 838a5d039379d82d9626aae53dfce276
+import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
+import  -/  base-4.12.0.0:System.Environment c54e0d0308e729fdace6bc37aa74bb52
+import  -/  base-4.12.0.0:System.IO c961e5ee6731c0683a6e879272c9e9f6
+import  -/  base-4.12.0.0:Text.Read 87f80fc2538a174aea915dd98f74fc0a
+import  -/  directory-1.3.3.0:System.Directory 49a915596c61b7c4c6db58cd4e1272c2
+import  -/  ghc-prim-0.5.3:GHC.Classes 0f6fd7d7db53fc48f6e1f01803cc6c9d
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+import  -/  BashParser c0f9405f25d2057f685887d4875cb40f
+  exports: 529b4cb5e3c4be7be081df55cb5e0ca9
+  Argument 253c42488536611a7a2a3dfdd50c301d
+  Cd 1a88ae8e41655ec0ea370adc5c244283
+  Cmd 726f1b06297b5fc829535082927a00b1
+  Code fddf3ca373ef21cc4a5868d1f5b5f6d3
+  Constr 5773e4b30031c54cdabad81db865a0d4
+  DQPart c072c11c13abe76e9eedf62e06f602b7
+  DoubleQuotes 228e3b7c04beea0d6c3f1636b13ab7e3
+  Echo ca67bb722c48f8a9ef6dd4b997bc2186
+  Eps 9017cf557ead54f77a36bcbe60211516
+  Exit 5708216127a2812c1729bf6fd156bce6
+  Pwd 6278bfa42977f09de3112fdd915e3358
+  Quotes 8ab92148952cdab3d6845dfe884726b1
+  Read a0e2f4acc237ee1bfd59c0e8cecff580
+  Str 6f9b11f3698d28078f94ce44f78a02d3
+  StringArgument 51add9bdec4c471e7d4b383f5c915018
+  VarAssigment b3d71f85164a4d5cfdd3f58bf9931d42
+  Vars ebc388bbccaf3a4528f4972b4d46cc45
+  pCode f246122d8d9243c2566db7e28e732861
+import  -/  megaparsec-7.0.5:Text.Megaparsec 6b1ca1ed792b97312f1a31d1e5f68586
+import  -/  megaparsec-7.0.5:Text.Megaparsec.Error afe963d02a7d2a6cfb9150675563c352
+import  -/  mtl-2.2.2:Control.Monad.Reader d5c3a33f1c95bb71f4ae02f87a7048ff
+import  -/  mtl-2.2.2:Control.Monad.Reader.Class 57cf6a03579b61bbf9b331632b55e65e
+import  -/  transformers-0.5.6.2:Control.Monad.Trans.Reader 047d9523dd0b97f3c42ee03eae49a228
+import  -/  unordered-containers-0.2.10.0:Data.HashMap.Base 8a653373153cca66584e06921052e69e
+import  -/  unordered-containers-0.2.10.0:Data.HashMap.Strict 14aa6b14c186f36ceb9dd8a7757e3d8e
+import  -/  unordered-containers-0.2.10.0:Data.HashMap.Strict.Base c4bf79bc2bd98a6b69c3b2c7023da188
+3b5bfc910715bc0413c771202f835c9f
+  $fEqCntx :: GHC.Classes.Eq BashInterpreter.Cntx
+  DFunId
+  {- HasNoCafRefs, Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ BashInterpreter.Cntx
+                  BashInterpreter.$fEqCntx_$c==
+                  BashInterpreter.$fEqCntx_$c/= -}
+3b5bfc910715bc0413c771202f835c9f
+  $fEqCntx_$c/= ::
+    BashInterpreter.Cntx -> BashInterpreter.Cntx -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLL),1*U(1*U,1*U,1*U)><S(SLL),1*U(1*U,1*U,1*U)>,
+     Inline: (sat-args=2),
+     Unfolding: InlineRule (2, False, False)
+                (\ (x :: BashInterpreter.Cntx) (y :: BashInterpreter.Cntx) ->
+                 case BashInterpreter.$fEqCntx_$c== x y of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+3b5bfc910715bc0413c771202f835c9f
+  $fEqCntx_$c== ::
+    BashInterpreter.Cntx -> BashInterpreter.Cntx -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(SLL),1*U(1*U,1*U,1*U)><S(SLL),1*U(1*U,1*U,1*U)>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: BashInterpreter.Cntx) (w1 :: BashInterpreter.Cntx) ->
+                 case w of ww { BashInterpreter.Cntx ww1 ww2 ww3 ->
+                 case w1 of ww4 { BashInterpreter.Cntx ww5 ww6 ww7 ->
+                 BashInterpreter.$w$c== ww1 ww2 ww3 ww5 ww6 ww7 } }) -}
+3b5bfc910715bc0413c771202f835c9f
+  $fShowCntx :: GHC.Show.Show BashInterpreter.Cntx
+  DFunId
+  {- Strictness: m, Inline: CONLIKE,
+     Unfolding: DFun:.
+                  @ BashInterpreter.Cntx
+                  BashInterpreter.$fShowCntx_$cshowsPrec
+                  BashInterpreter.$fShowCntx_$cshow
+                  BashInterpreter.$fShowCntx_$cshowList -}
+3b5bfc910715bc0413c771202f835c9f
+  $fShowCntx1 :: BashInterpreter.Cntx -> GHC.Show.ShowS
+  {- Arity: 1, Strictness: <S,1*U(U,U,1*U)>,
+     Unfolding: (\ (w :: BashInterpreter.Cntx) ->
+                 case w of ww { BashInterpreter.Cntx ww1 ww2 ww3 ->
+                 BashInterpreter.$w$cshowsPrec 0# ww1 ww2 ww3 }) -}
+6a32c875e27071bfdc4485487ccc95fb
+  $fShowCntx2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("}"#) -}
+844d48af62e7b5124ca3a5805c28f578
+  $fShowCntx3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("variables = "#) -}
+876eb577f67fb44ec89c1f9c99977aea
+  $fShowCntx4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("args = "#) -}
+a7f00b66bb10752de5a8d7c9611d7a68
+  $fShowCntx5 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+26a7189b2825e5363ce5ea5066760c5f
+  $fShowCntx6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("code = "#) -}
+b46976989660edd25360af4aa5155681
+  $fShowCntx7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Cntx {"#) -}
+3b5bfc910715bc0413c771202f835c9f
+  $fShowCntx_$cshow :: BashInterpreter.Cntx -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(U,U,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: BashInterpreter.Cntx) ->
+                 BashInterpreter.$fShowCntx_$cshowsPrec
+                   BashInterpreter.$fShowCntx5
+                   x
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+3b5bfc910715bc0413c771202f835c9f
+  $fShowCntx_$cshowList :: [BashInterpreter.Cntx] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ls :: [BashInterpreter.Cntx]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__
+                   @ BashInterpreter.Cntx
+                   BashInterpreter.$fShowCntx1
+                   ls
+                   s) -}
+3b5bfc910715bc0413c771202f835c9f
+  $fShowCntx_$cshowsPrec ::
+    GHC.Types.Int -> BashInterpreter.Cntx -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S(S),1*U(U)><S,1*U(U,U,1*U)>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: GHC.Types.Int) (w1 :: BashInterpreter.Cntx) ->
+                 case w of ww { GHC.Types.I# ww1 ->
+                 case w1 of ww2 { BashInterpreter.Cntx ww3 ww4 ww5 ->
+                 BashInterpreter.$w$cshowsPrec ww1 ww3 ww4 ww5 } }) -}
+c9c610528d9ec332cb649192596bbe79
+  $s$wupdateOrSnocWithKey ::
+    (GHC.Base.String -> v -> v -> v)
+    -> GHC.Base.String
+    -> v
+    -> Data.HashMap.Array.Array#
+         (Data.HashMap.Base.Leaf GHC.Base.String v)
+    -> Data.HashMap.Array.Array
+         (Data.HashMap.Base.Leaf GHC.Base.String v)
+  {- Arity: 4, Strictness: <L,C(C1(C1(U)))><S,1*U><L,U><S,U>,
+     Inline: [2],
+     Unfolding: (\ @ v
+                   (w1 :: GHC.Base.String -> v -> v -> v)
+                   (w2 :: GHC.Base.String)
+                   (w3 :: v)
+                   (ww :: Data.HashMap.Array.Array#
+                            (Data.HashMap.Base.Leaf GHC.Base.String v)) ->
+                 let {
+                   exit :: v
+                           -> Data.HashMap.Array.Array#
+                                (Data.HashMap.Base.Leaf GHC.Base.String v)
+                           -> GHC.Prim.Int#
+                           -> GHC.Base.String
+                           -> v
+                           -> Data.HashMap.Array.Array
+                                (Data.HashMap.Base.Leaf GHC.Base.String v)
+                     <join 5> {- Arity: 5, Strictness: <L,U><S,U><S,U><L,U><L,U> -}
+                   = \ (w :: v)[OneShot]
+                       (ww1 :: Data.HashMap.Array.Array#
+                                 (Data.HashMap.Base.Leaf GHC.Base.String v))[OneShot]
+                       (ww2 :: GHC.Prim.Int#)[OneShot]
+                       (k2 :: GHC.Base.String)[OneShot]
+                       (y :: v)[OneShot] ->
+                     case GHC.Magic.runRW#
+                            @ ('GHC.Types.TupleRep
+                                 '[ 'GHC.Types.TupleRep '[], 'GHC.Types.LiftedRep])
+                            @ (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                 Data.HashMap.Array.Array
+                                   (Data.HashMap.Base.Leaf GHC.Base.String v) #)
+                            (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                             case GHC.Prim.thawSmallArray#
+                                    @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                    @ GHC.Prim.RealWorld
+                                    ww1
+                                    0#
+                                    (GHC.Prim.sizeofSmallArray#
+                                       @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                       ww1)
+                                    s1 of ds2 { (#,#) ipv4 ipv5 ->
+                             case GHC.Prim.writeSmallArray#
+                                    @ GHC.Prim.RealWorld
+                                    @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                    ipv5
+                                    ww2
+                                    (Data.HashMap.Base.L @ GHC.Base.String @ v k2 (w1 k2 w y))
+                                    ipv4 of s' { DEFAULT ->
+                             case GHC.Prim.unsafeFreezeSmallArray#
+                                    @ GHC.Prim.RealWorld
+                                    @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                    ipv5
+                                    s' of ds3 { (#,#) ipv6 ipv7 ->
+                             (# ipv6,
+                                Data.HashMap.Array.Array
+                                  @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                  ipv7 #) } } }) of ds2 { (#,#) ipv4 ipv5 ->
+                     ipv5 }
+                 } in
+                 letrec {
+                   $wgo1 :: GHC.Base.String
+                            -> v
+                            -> Data.HashMap.Array.Array#
+                                 (Data.HashMap.Base.Leaf GHC.Base.String v)
+                            -> GHC.Prim.Int#
+                            -> GHC.Prim.Int#
+                            -> Data.HashMap.Array.Array
+                                 (Data.HashMap.Base.Leaf GHC.Base.String v)
+                     <join 5> {- Arity: 5, Strictness: <S,1*U><L,U><S,U><S,U><S,U>,
+                                 Inline: [2] -}
+                   = \ (w :: GHC.Base.String)
+                       (w4 :: v)
+                       (ww1 :: Data.HashMap.Array.Array#
+                                 (Data.HashMap.Base.Leaf GHC.Base.String v))
+                       (ww2 :: GHC.Prim.Int#)
+                       (ww3 :: GHC.Prim.Int#) ->
+                     case w of k2 { DEFAULT ->
+                     case GHC.Prim.>=# ww2 ww3 of lwild {
+                       DEFAULT
+                       -> case GHC.Prim.indexSmallArray#
+                                 @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                 ww1
+                                 ww2 of ds1 { Unit# ipv3 ->
+                          case ipv3 of wild1 { Data.HashMap.Base.L kx y ->
+                          case GHC.Base.eqString k2 kx of wild2 {
+                            GHC.Types.False -> $wgo1 k2 w4 ww1 (GHC.Prim.+# ww2 1#) ww3
+                            GHC.Types.True -> exit w4 ww1 ww2 k2 y } } }
+                       1#
+                       -> case GHC.Magic.runRW#
+                                 @ ('GHC.Types.TupleRep
+                                      '[ 'GHC.Types.TupleRep '[], 'GHC.Types.LiftedRep])
+                                 @ (# GHC.Prim.State# GHC.Prim.RealWorld,
+                                      Data.HashMap.Array.Array
+                                        (Data.HashMap.Base.Leaf GHC.Base.String v) #)
+                                 (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot] ->
+                                  case GHC.Prim.newSmallArray#
+                                         @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                         @ GHC.Prim.RealWorld
+                                         (GHC.Prim.+# ww3 1#)
+                                         (Data.HashMap.Array.undefinedElem
+                                            @ (Data.HashMap.Base.Leaf GHC.Base.String v))
+                                         s1 of ds { (#,#) ipv3 ipv4 ->
+                                  case GHC.Prim.copySmallArray#
+                                         @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                         @ GHC.Prim.RealWorld
+                                         ww1
+                                         0#
+                                         ipv4
+                                         0#
+                                         ww3
+                                         ipv3 of s2 { DEFAULT ->
+                                  case GHC.Prim.writeSmallArray#
+                                         @ GHC.Prim.RealWorld
+                                         @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                         ipv4
+                                         ww3
+                                         (Data.HashMap.Base.L @ GHC.Base.String @ v k2 w4)
+                                         s2 of s' { DEFAULT ->
+                                  case GHC.Prim.unsafeFreezeSmallArray#
+                                         @ GHC.Prim.RealWorld
+                                         @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                         ipv4
+                                         s' of ds2 { (#,#) ipv5 ipv6 ->
+                                  (# ipv5,
+                                     Data.HashMap.Array.Array
+                                       @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                                       ipv6 #) } } } }) of ds1 { (#,#) ipv3 ipv4 ->
+                          ipv4 } } }
+                 } in
+                 $wgo1
+                   w2
+                   w3
+                   ww
+                   0#
+                   (GHC.Prim.sizeofSmallArray#
+                      @ (Data.HashMap.Base.Leaf GHC.Base.String v)
+                      ww)) -}
+992fda4473939badd00e0d6c70e2c6d9
+  $slookup# ::
+    GHC.Base.String
+    -> Data.HashMap.Base.HashMap GHC.Base.String v -> (# (# #) | v #)
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U>,
+     Unfolding: (\ @ v
+                   (k1 :: GHC.Base.String)
+                   (m :: Data.HashMap.Base.HashMap GHC.Base.String v) ->
+                 let {
+                   exit :: GHC.Prim.Int# -> GHC.Prim.Int# -> (# (# #) | v #)
+                     <join 2> {- Arity: 2, Strictness: <S,U><S,U> -}
+                   = \ (ww :: GHC.Prim.Int#)[OneShot]
+                       (ww1 :: GHC.Prim.Int#)[OneShot] ->
+                     BashInterpreter.$wpoly_go2
+                       @ v
+                       (GHC.Prim.int2Word#
+                          (GHC.Prim.xorI# (GHC.Prim.*# ww 16777619#) ww1))
+                       k1
+                       0#
+                       m
+                 } in
+                 letrec {
+                   $wgo4 :: [GHC.Types.Char]
+                            -> GHC.Prim.Int# -> GHC.Prim.Int# -> (# (# #) | v #)
+                     <join 3> {- Arity: 3, Strictness: <S,1*U><S,U><S,U>, Inline: [2] -}
+                   = \ (w1 :: [GHC.Types.Char])
+                       (ww :: GHC.Prim.Int#)
+                       (ww1 :: GHC.Prim.Int#) ->
+                     case w1 of wild {
+                       [] -> exit ww ww1
+                       : y ys
+                       -> case y of wild1 { GHC.Types.C# c# ->
+                          $wgo4
+                            ys
+                            (GHC.Prim.xorI# (GHC.Prim.*# ww 16777619#) (GHC.Prim.ord# c#))
+                            (GHC.Prim.+# ww1 1#) } }
+                 } in
+                 $wgo4 k1 -2578643520546668380# 0#) -}
+60d9a441ef8eeee8d23f3de6f968ac9c
+  $tc'Cntx :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   13682068297373839094##
+                   8842501706338572618##
+                   BashInterpreter.$trModule
+                   BashInterpreter.$tc'Cntx2
+                   0#
+                   BashInterpreter.$tc'Cntx1) -}
+22bfb104a02768d2984012b97c8778a9
+  $tc'Cntx1 :: GHC.Types.KindRep
+  {- HasNoCafRefs, Strictness: m4, Inline: [~] -}
+75b3db50a3186acc6cb848ea68e19a79
+  $tc'Cntx2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BashInterpreter.$tc'Cntx3) -}
+11f39f1e72df3046b36ea2444a9fb9b1
+  $tc'Cntx3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("'Cntx"#) -}
+59e9874b060cb4ce3579c614ae0f5a1d
+  $tcCntx :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4856084343990726988##
+                   7438699875173400235##
+                   BashInterpreter.$trModule
+                   BashInterpreter.$tcCntx1
+                   0#
+                   GHC.Types.krep$*) -}
+5c14e691d289ada384df6c18b96f1ac3
+  $tcCntx1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BashInterpreter.$tcCntx2) -}
+fe81260da3f7702baad9328e2ebace4b
+  $tcCntx2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Cntx"#) -}
+759d5d768025cc03557d8c7d4633162d
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   BashInterpreter.$trModule3
+                   BashInterpreter.$trModule1) -}
+dbb7366dd32eb4cd11f31f179ba3fb99
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BashInterpreter.$trModule2) -}
+ae654dade09f9c67f82a2583d2e63fd3
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("BashInterpreter"#) -}
+27870cdca10a0c6465575572d211d31f
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BashInterpreter.$trModule4) -}
+68b83adf81940567489df2f2eb1a2145
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("hw3-0.1.0.0-83r239n2GbFIyVIthhyr0Y"#) -}
+c92ca05a92639f408dd54c92623172c2
+  $w$c== ::
+    BashParser.Code
+    -> [GHC.Base.String]
+    -> Data.HashMap.Base.HashMap GHC.Base.String GHC.Base.String
+    -> BashParser.Code
+    -> [GHC.Base.String]
+    -> Data.HashMap.Base.HashMap GHC.Base.String GHC.Base.String
+    -> GHC.Types.Bool
+  {- Arity: 6, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><L,1*U><S,1*U><L,1*U><L,1*U>,
+     Inline: [2],
+     Unfolding: (\ (ww :: BashParser.Code)
+                   (ww1 :: [GHC.Base.String])
+                   (ww2 :: Data.HashMap.Base.HashMap GHC.Base.String GHC.Base.String)
+                   (ww3 :: BashParser.Code)
+                   (ww4 :: [GHC.Base.String])
+                   (ww5 :: Data.HashMap.Base.HashMap
+                             GHC.Base.String GHC.Base.String) ->
+                 case BashParser.$fEqCode_$c== ww ww3 of wild {
+                   GHC.Types.False -> GHC.Types.False
+                   GHC.Types.True
+                   -> case GHC.Classes.$fEq[]_$s$c==1 ww1 ww4 of wild1 {
+                        GHC.Types.False -> GHC.Types.False
+                        GHC.Types.True
+                        -> Data.HashMap.Base.equal1
+                             @ [GHC.Types.Char]
+                             @ [GHC.Types.Char]
+                             @ [GHC.Types.Char]
+                             GHC.Classes.$fEq[]_$s$fEq[]1
+                             GHC.Base.eqString
+                             ww2
+                             ww5 } }) -}
+e24721d23d8a52128d6369b5c1247364
+  $w$cshowsPrec ::
+    GHC.Prim.Int#
+    -> BashParser.Code
+    -> [GHC.Base.String]
+    -> Data.HashMap.Base.HashMap GHC.Base.String GHC.Base.String
+    -> GHC.Show.ShowS
+  {- Arity: 4, Strictness: <S,U><L,U><L,U><L,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: GHC.Prim.Int#)
+                   (ww1 :: BashParser.Code)
+                   (ww2 :: [GHC.Base.String])
+                   (ww3 :: Data.HashMap.Base.HashMap
+                             GHC.Base.String GHC.Base.String) ->
+                 let {
+                   f :: GHC.Base.String -> GHC.Base.String
+                   = Data.HashMap.Base.$w$cshowsPrec
+                       @ [GHC.Types.Char]
+                       @ [GHC.Types.Char]
+                       GHC.Show.$fShow[]_$s$fShow[]1
+                       GHC.Show.$fShow[]_$s$fShow[]1
+                       0#
+                       ww3
+                 } in
+                 let {
+                   p :: GHC.Show.ShowS {- Arity: 1, Strictness: <L,U> -}
+                   = \ (x :: GHC.Base.String) ->
+                     GHC.CString.unpackAppendCString#
+                       BashInterpreter.$fShowCntx7
+                       (GHC.CString.unpackAppendCString#
+                          BashInterpreter.$fShowCntx6
+                          (BashParser.$fShowCode_$cshowsPrec
+                             BashInterpreter.$fShowCntx5
+                             ww1
+                             (GHC.Base.++
+                                @ GHC.Types.Char
+                                GHC.Show.showCommaSpace1
+                                (GHC.CString.unpackAppendCString#
+                                   BashInterpreter.$fShowCntx4
+                                   (let {
+                                      s :: GHC.Base.String
+                                      = GHC.Base.++
+                                          @ GHC.Types.Char
+                                          GHC.Show.showCommaSpace1
+                                          (GHC.CString.unpackAppendCString#
+                                             BashInterpreter.$fShowCntx3
+                                             (f (GHC.CString.unpackAppendCString#
+                                                   BashInterpreter.$fShowCntx2
+                                                   x)))
+                                    } in
+                                    case ww2 of wild {
+                                      [] -> GHC.CString.unpackAppendCString# GHC.Show.showList__4 s
+                                      : x1 xs
+                                      -> GHC.Types.:
+                                           @ GHC.Types.Char
+                                           GHC.Show.showList__3
+                                           (GHC.Types.:
+                                              @ GHC.Types.Char
+                                              GHC.Show.$fShow(,)3
+                                              (GHC.Show.showLitString
+                                                 x1
+                                                 (GHC.Types.:
+                                                    @ GHC.Types.Char
+                                                    GHC.Show.$fShow(,)3
+                                                    (let {
+                                                       lvl43 :: [GHC.Types.Char]
+                                                       = GHC.Types.:
+                                                           @ GHC.Types.Char
+                                                           GHC.Show.showList__2
+                                                           s
+                                                     } in
+                                                     letrec {
+                                                       showl :: [[GHC.Types.Char]]
+                                                                -> GHC.Base.String
+                                                         {- Arity: 1, Strictness: <S,1*U> -}
+                                                       = \ (ds2 :: [[GHC.Types.Char]]) ->
+                                                         case ds2 of wild1 {
+                                                           [] -> lvl43
+                                                           : y ys
+                                                           -> GHC.Types.:
+                                                                @ GHC.Types.Char
+                                                                GHC.Show.showList__1
+                                                                (GHC.Types.:
+                                                                   @ GHC.Types.Char
+                                                                   GHC.Show.$fShow(,)3
+                                                                   (GHC.Show.showLitString
+                                                                      y
+                                                                      (GHC.Types.:
+                                                                         @ GHC.Types.Char
+                                                                         GHC.Show.$fShow(,)3
+                                                                         (showl ys)))) }
+                                                     } in
+                                                     showl xs)))) })))))
+                 } in
+                 case GHC.Prim.>=# ww 11# of lwild {
+                   DEFAULT -> p
+                   1#
+                   -> \ (x :: GHC.Base.String) ->
+                      GHC.Types.:
+                        @ GHC.Types.Char
+                        GHC.Show.$fShow(,)4
+                        (p (GHC.Types.: @ GHC.Types.Char GHC.Show.$fShow(,)2 x)) }) -}
+e0c761e5edf53192edf9285cafb9e875
+  $wbashApp ::
+    BashParser.Code
+    -> [GHC.Base.String]
+    -> Data.HashMap.Base.HashMap GHC.Base.String GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 4, Strictness: <S,1*U><L,U><L,U><S,U>, Inline: [2] -}
+c7d27951a0f6f88b0a0788629ba1ec1f
+  $wpoly_go1 ::
+    GHC.Prim.Word#
+    -> GHC.Base.String
+    -> v
+    -> GHC.Prim.Int#
+    -> Data.HashMap.Base.HashMap GHC.Base.String v
+    -> Data.HashMap.Base.HashMap GHC.Base.String v
+  {- Arity: 5, Strictness: <S,U><S,1*U><L,U><L,U><S,1*U>,
+     Inline: [2] -}
+02b984d57a186eb58a6cef5be1571dd1
+  $wpoly_go2 ::
+    GHC.Prim.Word#
+    -> GHC.Base.String
+    -> GHC.Prim.Int#
+    -> Data.HashMap.Base.HashMap GHC.Base.String v
+    -> (# (# #) | v #)
+  {- Arity: 4, HasNoCafRefs, Strictness: <L,U><S,1*U><L,U><S,1*U>,
+     Inline: [2] -}
+3b5bfc910715bc0413c771202f835c9f
+  data Cntx
+    = Cntx {code :: BashParser.Code,
+            args :: [GHC.Base.String],
+            variables :: Data.HashMap.Base.HashMap
+                           GHC.Base.String GHC.Base.String}
+3b5bfc910715bc0413c771202f835c9f
+  args :: BashInterpreter.Cntx -> [GHC.Base.String]
+  RecSel Left BashInterpreter.Cntx
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSL),1*U(A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: BashInterpreter.Cntx) ->
+                 case ds of wild { BashInterpreter.Cntx ds1 ds2 ds3 -> ds2 }) -}
+3b5bfc910715bc0413c771202f835c9f
+  code :: BashInterpreter.Cntx -> BashParser.Code
+  RecSel Left BashInterpreter.Cntx
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLL),1*U(1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: BashInterpreter.Cntx) ->
+                 case ds of wild { BashInterpreter.Cntx ds1 ds2 ds3 -> ds1 }) -}
+72f79ecd28e288bcc408c772aab51434
+  run :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BashInterpreter.run1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+ff8c33eaebb8971311a4ddf67e1da4f4
+  run1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case (Foreign.Marshal.Alloc.allocaBytesAligned
+                         @ Foreign.C.Types.CInt
+                         @ [GHC.Base.String]
+                         Foreign.Storable.$fStorableBool7
+                         Foreign.Storable.$fStorableBool7
+                         System.Environment.getArgs1
+                           `cast`
+                         (<GHC.Ptr.Ptr Foreign.C.Types.CInt>_R
+                          ->_R Sym (GHC.Types.N:IO[0] <[GHC.Base.String]>_R)))
+                        `cast`
+                      (GHC.Types.N:IO[0] <[GHC.Base.String]>_R)
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.FD.openFile1
+                        (GHC.List.head @ GHC.Base.String ipv1)
+                        GHC.IO.IOMode.ReadMode
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case GHC.IO.Handle.Text.hGetContents1
+                        ipv3
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case (BashParser.$wpCode
+                         @ (Text.Megaparsec.Internal.Reply
+                              Data.Void.Void GHC.Base.String BashParser.Code)
+                         ipv5
+                         0#
+                         (Text.Megaparsec.State.PosState
+                            @ GHC.Base.String
+                            ipv5
+                            0#
+                            BashInterpreter.run_s2
+                            Text.Megaparsec.Pos.defaultTabWidth_a
+                              `cast`
+                            (Sym (Text.Megaparsec.Pos.N:Pos[0]))
+                            (GHC.Types.[] @ GHC.Types.Char))
+                         BashInterpreter.run5
+                           `cast`
+                         (<BashParser.Code>_R
+                          ->_R <Text.Megaparsec.State.State GHC.Base.String>_R
+                          ->_R <Text.Megaparsec.Internal.Hints
+                                  (Text.Megaparsec.Stream.Token GHC.Base.String)>_R
+                          ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                        <Text.Megaparsec.Internal.Reply
+                                           Data.Void.Void GHC.Base.String BashParser.Code>_R))
+                         BashInterpreter.run4
+                           `cast`
+                         (<Text.Megaparsec.Error.ParseError
+                             GHC.Base.String Data.Void.Void>_R
+                          ->_R <Text.Megaparsec.State.State GHC.Base.String>_R
+                          ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                        <Text.Megaparsec.Internal.Reply
+                                           Data.Void.Void GHC.Base.String BashParser.Code>_R))
+                         BashInterpreter.run3
+                           `cast`
+                         (<BashParser.Code>_R
+                          ->_R <Text.Megaparsec.State.State GHC.Base.String>_R
+                          ->_R <Text.Megaparsec.Internal.Hints
+                                  (Text.Megaparsec.Stream.Token GHC.Base.String)>_R
+                          ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                        <Text.Megaparsec.Internal.Reply
+                                           Data.Void.Void GHC.Base.String BashParser.Code>_R))
+                         BashInterpreter.run2
+                           `cast`
+                         (<Text.Megaparsec.Error.ParseError
+                             GHC.Base.String Data.Void.Void>_R
+                          ->_R <Text.Megaparsec.State.State GHC.Base.String>_R
+                          ->_R Sym (Data.Functor.Identity.N:Identity[0]
+                                        <Text.Megaparsec.Internal.Reply
+                                           Data.Void.Void GHC.Base.String BashParser.Code>_R)))
+                        `cast`
+                      (Data.Functor.Identity.N:Identity[0]
+                           <Text.Megaparsec.Internal.Reply
+                              Data.Void.Void
+                              GHC.Base.String
+                              BashParser.Code>_R) of wild { Text.Megaparsec.Internal.Reply s' ds result ->
+                 case result of wild1 {
+                   Text.Megaparsec.Internal.OK x
+                   -> BashInterpreter.$wbashApp
+                        x
+                        (GHC.List.tail @ GHC.Base.String ipv1)
+                        (Data.HashMap.Base.Empty @ GHC.Base.String @ GHC.Base.String)
+                        ipv4
+                   Text.Megaparsec.Internal.Error e1
+                   -> (GHC.IO.Handle.Text.hPutStr'
+                         GHC.IO.Handle.FD.stdout
+                         (Text.Megaparsec.Error.$werrorBundlePretty
+                            @ GHC.Base.String
+                            @ Data.Void.Void
+                            Text.Megaparsec.Stream.$fStream[]
+                            Text.Megaparsec.Error.$fShowErrorComponentVoid
+                            e1
+                            (GHC.Types.[]
+                               @ (Text.Megaparsec.Error.ParseError
+                                    GHC.Base.String Data.Void.Void))
+                            ipv5
+                            0#
+                            BashInterpreter.run_s2
+                            Text.Megaparsec.Pos.defaultTabWidth_a
+                              `cast`
+                            (Sym (Text.Megaparsec.Pos.N:Pos[0]))
+                            (GHC.Types.[] @ GHC.Types.Char))
+                         GHC.Types.True)
+                        `cast`
+                      (GHC.Types.N:IO[0] <()>_R)
+                        ipv4 } } } } }) -}
+78e03800c44cc1b093a2f1e2a287a5e2
+  run2 ::
+    Text.Megaparsec.Error.ParseError GHC.Base.String Data.Void.Void
+    -> Text.Megaparsec.State.State GHC.Base.String
+    -> Text.Megaparsec.Internal.Reply
+         Data.Void.Void GHC.Base.String BashParser.Code
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m,
+     Unfolding: (\ (err :: Text.Megaparsec.Error.ParseError
+                             GHC.Base.String Data.Void.Void)
+                   (s' :: Text.Megaparsec.State.State GHC.Base.String)[OneShot] ->
+                 Text.Megaparsec.Internal.Reply
+                   @ Data.Void.Void
+                   @ GHC.Base.String
+                   @ BashParser.Code
+                   s'
+                   Text.Megaparsec.Internal.Virgin
+                   (Text.Megaparsec.Internal.Error
+                      @ GHC.Base.String
+                      @ Data.Void.Void
+                      @ BashParser.Code
+                      err)) -}
+944baa0b1484c116bf462cd05f55da13
+  run3 ::
+    BashParser.Code
+    -> Text.Megaparsec.State.State GHC.Base.String
+    -> Text.Megaparsec.Internal.Hints
+         (Text.Megaparsec.Stream.Token GHC.Base.String)
+    -> Text.Megaparsec.Internal.Reply
+         Data.Void.Void GHC.Base.String BashParser.Code
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,U><L,A>m,
+     Unfolding: (\ (a1 :: BashParser.Code)
+                   (s' :: Text.Megaparsec.State.State GHC.Base.String)[OneShot]
+                   (ds :: Text.Megaparsec.Internal.Hints
+                            (Text.Megaparsec.Stream.Token GHC.Base.String))[OneShot] ->
+                 Text.Megaparsec.Internal.Reply
+                   @ Data.Void.Void
+                   @ GHC.Base.String
+                   @ BashParser.Code
+                   s'
+                   Text.Megaparsec.Internal.Virgin
+                   (Text.Megaparsec.Internal.OK
+                      @ GHC.Base.String
+                      @ Data.Void.Void
+                      @ BashParser.Code
+                      a1)) -}
+ec222b09089aa0c3382d5a6a0fdf44d3
+  run4 ::
+    Text.Megaparsec.Error.ParseError GHC.Base.String Data.Void.Void
+    -> Text.Megaparsec.State.State GHC.Base.String
+    -> Text.Megaparsec.Internal.Reply
+         Data.Void.Void GHC.Base.String BashParser.Code
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,U>m,
+     Unfolding: (\ (err :: Text.Megaparsec.Error.ParseError
+                             GHC.Base.String Data.Void.Void)
+                   (s' :: Text.Megaparsec.State.State GHC.Base.String) ->
+                 Text.Megaparsec.Internal.Reply
+                   @ Data.Void.Void
+                   @ GHC.Base.String
+                   @ BashParser.Code
+                   s'
+                   Text.Megaparsec.Internal.Consumed
+                   (Text.Megaparsec.Internal.Error
+                      @ GHC.Base.String
+                      @ Data.Void.Void
+                      @ BashParser.Code
+                      err)) -}
+38a83c7ea4697523ff680587b683a713
+  run5 ::
+    BashParser.Code
+    -> Text.Megaparsec.State.State GHC.Base.String
+    -> Text.Megaparsec.Internal.Hints
+         (Text.Megaparsec.Stream.Token GHC.Base.String)
+    -> Text.Megaparsec.Internal.Reply
+         Data.Void.Void GHC.Base.String BashParser.Code
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,U><L,U><L,A>m,
+     Unfolding: (\ (a1 :: BashParser.Code)
+                   (s' :: Text.Megaparsec.State.State GHC.Base.String)[OneShot]
+                   (ds :: Text.Megaparsec.Internal.Hints
+                            (Text.Megaparsec.Stream.Token GHC.Base.String))[OneShot] ->
+                 Text.Megaparsec.Internal.Reply
+                   @ Data.Void.Void
+                   @ GHC.Base.String
+                   @ BashParser.Code
+                   s'
+                   Text.Megaparsec.Internal.Consumed
+                   (Text.Megaparsec.Internal.OK
+                      @ GHC.Base.String
+                      @ Data.Void.Void
+                      @ BashParser.Code
+                      a1)) -}
+6b250da36554d852d66fab142ca8d2e2
+  run_s2 :: Text.Megaparsec.Pos.SourcePos
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (Text.Megaparsec.Pos.SourcePos
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   1#
+                   1#) -}
+3b5bfc910715bc0413c771202f835c9f
+  variables ::
+    BashInterpreter.Cntx
+    -> Data.HashMap.Base.HashMap GHC.Base.String GHC.Base.String
+  RecSel Left BashInterpreter.Cntx
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLS),1*U(A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: BashInterpreter.Cntx) ->
+                 case ds of wild { BashInterpreter.Cntx ds1 ds2 ds3 -> ds3 }) -}
+instance GHC.Classes.Eq [BashInterpreter.Cntx]
+  = BashInterpreter.$fEqCntx
+instance GHC.Show.Show [BashInterpreter.Cntx]
+  = BashInterpreter.$fShowCntx
+"SPEC/BashInterpreter $wupdateOrSnocWithKey @ String _" [orphan] [2] forall @ v
+                                                                            (w :: GHC.Classes.Eq
+                                                                                    GHC.Base.String)
+  Data.HashMap.Base.$wupdateOrSnocWithKey @ [GHC.Types.Char] @ v w
+  = BashInterpreter.$s$wupdateOrSnocWithKey @ v
+"SPEC/BashInterpreter lookup# @ String _" [orphan] forall @ v
+                                                          ($dHashable :: Data.Hashable.Class.Hashable
+                                                                           GHC.Base.String)
+                                                          ($dEq :: GHC.Classes.Eq GHC.Base.String)
+  Data.HashMap.Base.lookup# @ [GHC.Types.Char] @ v $dEq $dHashable
+  = BashInterpreter.$slookup# @ v
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

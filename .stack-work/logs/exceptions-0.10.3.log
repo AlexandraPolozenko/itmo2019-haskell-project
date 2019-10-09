@@ -1,0 +1,7 @@
+Configuring exceptions-0.10.3...
+Preprocessing library for exceptions-0.10.3..
+Building library for exceptions-0.10.3..
+[1 of 2] Compiling Control.Monad.Catch ( src/Control/Monad/Catch.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Control/Monad/Catch.o )
+[2 of 2] Compiling Control.Monad.Catch.Pure ( src/Control/Monad/Catch/Pure.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Control/Monad/Catch/Pure.o )
+Installing library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/exceptions-0.10.3-HxcogURuow4vEVQcMjJ2k
+Registering library for exceptions-0.10.3..
