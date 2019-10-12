@@ -1,0 +1,6 @@
+Configuring half-0.3...
+Preprocessing library for half-0.3..
+Building library for half-0.3..
+[1 of 1] Compiling Numeric.Half     ( src/Numeric/Half.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Numeric/Half.o )
+Installing library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/half-0.3-Ev8Lz3j60xACodwSKk6ogk
+Registering library for half-0.3..

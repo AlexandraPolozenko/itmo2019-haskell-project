@@ -100,10 +100,10 @@
 #endif /* MIN_TOOL_VERSION_runghc */
 
 #ifndef CURRENT_PACKAGE_KEY
-#define CURRENT_PACKAGE_KEY "battlefield-0.1.0.0-8mAvAVoC0lt3A8sg7SKy98"
+#define CURRENT_PACKAGE_KEY "battlefield-0.1.0.0-CX8jfjPtUBy5hDAbvdlH1Q"
 #endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "battlefield-0.1.0.0-8mAvAVoC0lt3A8sg7SKy98"
+#define CURRENT_COMPONENT_ID "battlefield-0.1.0.0-CX8jfjPtUBy5hDAbvdlH1Q"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

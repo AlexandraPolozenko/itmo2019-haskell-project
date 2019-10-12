@@ -111,7 +111,7 @@
 #endif /* MIN_TOOL_VERSION_runghc */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "battlefield-0.1.0.0-5vyRIV0HGGWEMW9FltzxdC-hw3-test"
+#define CURRENT_COMPONENT_ID "battlefield-0.1.0.0-1PXggyPwGLeFNYX2CHuIpG-hw3-test"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"

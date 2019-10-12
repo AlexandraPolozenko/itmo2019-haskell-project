@@ -22,94 +22,6 @@
   (major1) == 4 && (major2) == 12 && (minor) <= 0)
 #endif /* MIN_VERSION_base */
 
-/* package battlefield-0.1.0.0 */
-#ifndef VERSION_battlefield
-#define VERSION_battlefield "0.1.0.0"
-#endif /* VERSION_battlefield */
-#ifndef MIN_VERSION_battlefield
-#define MIN_VERSION_battlefield(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  1 || \
-  (major1) == 0 && (major2) == 1 && (minor) <= 0)
-#endif /* MIN_VERSION_battlefield */
-
-/* package binary-0.8.6.0 */
-#ifndef VERSION_binary
-#define VERSION_binary "0.8.6.0"
-#endif /* VERSION_binary */
-#ifndef MIN_VERSION_binary
-#define MIN_VERSION_binary(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  8 || \
-  (major1) == 0 && (major2) == 8 && (minor) <= 6)
-#endif /* MIN_VERSION_binary */
-
-/* package bytestring-0.10.8.2 */
-#ifndef VERSION_bytestring
-#define VERSION_bytestring "0.10.8.2"
-#endif /* VERSION_bytestring */
-#ifndef MIN_VERSION_bytestring
-#define MIN_VERSION_bytestring(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  10 || \
-  (major1) == 0 && (major2) == 10 && (minor) <= 8)
-#endif /* MIN_VERSION_bytestring */
-
-/* package gloss-1.13.0.1 */
-#ifndef VERSION_gloss
-#define VERSION_gloss "1.13.0.1"
-#endif /* VERSION_gloss */
-#ifndef MIN_VERSION_gloss
-#define MIN_VERSION_gloss(major1,major2,minor) (\
-  (major1) <  1 || \
-  (major1) == 1 && (major2) <  13 || \
-  (major1) == 1 && (major2) == 13 && (minor) <= 0)
-#endif /* MIN_VERSION_gloss */
-
-/* package network-2.8.0.1 */
-#ifndef VERSION_network
-#define VERSION_network "2.8.0.1"
-#endif /* VERSION_network */
-#ifndef MIN_VERSION_network
-#define MIN_VERSION_network(major1,major2,minor) (\
-  (major1) <  2 || \
-  (major1) == 2 && (major2) <  8 || \
-  (major1) == 2 && (major2) == 8 && (minor) <= 0)
-#endif /* MIN_VERSION_network */
-
-/* package random-1.1 */
-#ifndef VERSION_random
-#define VERSION_random "1.1"
-#endif /* VERSION_random */
-#ifndef MIN_VERSION_random
-#define MIN_VERSION_random(major1,major2,minor) (\
-  (major1) <  1 || \
-  (major1) == 1 && (major2) <  1 || \
-  (major1) == 1 && (major2) == 1 && (minor) <= 0)
-#endif /* MIN_VERSION_random */
-
-/* package random-shuffle-0.0.4 */
-#ifndef VERSION_random_shuffle
-#define VERSION_random_shuffle "0.0.4"
-#endif /* VERSION_random_shuffle */
-#ifndef MIN_VERSION_random_shuffle
-#define MIN_VERSION_random_shuffle(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  0 || \
-  (major1) == 0 && (major2) == 0 && (minor) <= 4)
-#endif /* MIN_VERSION_random_shuffle */
-
-/* package word8-0.1.3 */
-#ifndef VERSION_word8
-#define VERSION_word8 "0.1.3"
-#endif /* VERSION_word8 */
-#ifndef MIN_VERSION_word8
-#define MIN_VERSION_word8(major1,major2,minor) (\
-  (major1) <  0 || \
-  (major1) == 0 && (major2) <  1 || \
-  (major1) == 0 && (major2) == 1 && (minor) <= 3)
-#endif /* MIN_VERSION_word8 */
-
 /* tool gcc-4.2.1 */
 #ifndef TOOL_VERSION_gcc
 #define TOOL_VERSION_gcc "4.2.1"
@@ -187,9 +99,15 @@
   (major1) == 8 && (major2) == 6 && (minor) <= 5)
 #endif /* MIN_TOOL_VERSION_runghc */
 
+#ifndef CURRENT_PACKAGE_KEY
+#define CURRENT_PACKAGE_KEY "battlefield-0.1.0.0-CX8jfjPtUBy5hDAbvdlH1Q"
+#endif /* CURRENT_PACKAGE_KEY */
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "battlefield-0.1.0.0-IrZNS90GgJZKasnSBWsCUU-mini-shell"
+#define CURRENT_COMPONENT_ID "battlefield-0.1.0.0-CX8jfjPtUBy5hDAbvdlH1Q"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
 #endif /* CURRENT_PACKAGE_VERSION */
+
+#undef CURRENT_PACKAGE_KEY
+#undef CURRENT_COMPONENT_ID

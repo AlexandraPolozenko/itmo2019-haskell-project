@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/aleksandra/Desktop/haskell/itmo2019-haskell-project/.stack-work/install/x86_64-osx/lts-14.6/8.6.5/bin"
-libdir     = "/Users/aleksandra/Desktop/haskell/itmo2019-haskell-project/.stack-work/install/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/battlefield-0.1.0.0-8mAvAVoC0lt3A8sg7SKy98"
+libdir     = "/Users/aleksandra/Desktop/haskell/itmo2019-haskell-project/.stack-work/install/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/battlefield-0.1.0.0-CX8jfjPtUBy5hDAbvdlH1Q"
 dynlibdir  = "/Users/aleksandra/Desktop/haskell/itmo2019-haskell-project/.stack-work/install/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5"
 datadir    = "/Users/aleksandra/Desktop/haskell/itmo2019-haskell-project/.stack-work/install/x86_64-osx/lts-14.6/8.6.5/share/x86_64-osx-ghc-8.6.5/battlefield-0.1.0.0"
 libexecdir = "/Users/aleksandra/Desktop/haskell/itmo2019-haskell-project/.stack-work/install/x86_64-osx/lts-14.6/8.6.5/libexec/x86_64-osx-ghc-8.6.5/battlefield-0.1.0.0"

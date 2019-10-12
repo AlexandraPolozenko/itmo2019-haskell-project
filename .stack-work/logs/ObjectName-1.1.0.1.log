@@ -1,0 +1,6 @@
+Configuring ObjectName-1.1.0.1...
+Preprocessing library for ObjectName-1.1.0.1..
+Building library for ObjectName-1.1.0.1..
+[1 of 1] Compiling Data.ObjectName  ( src/Data/ObjectName.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Data/ObjectName.o )
+Installing library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/ObjectName-1.1.0.1-CDTV8Pj4rLtHGU6QO0tv1T
+Registering library for ObjectName-1.1.0.1..

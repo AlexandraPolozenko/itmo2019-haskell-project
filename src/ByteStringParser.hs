@@ -18,6 +18,13 @@ instance B.Binary Turn where
   put (Proof c) = do
     B.put (2 :: Word8)
     B.putList c
+  put FinishTurn = do
+  	B.put (3 :: Word8)
+  put MakeTurn = do
+  	B.put (4 :: Word8)
+  put (TakeCard c) = do
+    B.put (5 :: Word8)
+    B.put c
   get = do
     t <- B.get :: B.Get Word8
     case t of
@@ -32,6 +39,13 @@ instance B.Binary Turn where
       2 -> do
         c <- B.get
         return $ Proof c
+      3 -> do
+        return FinishTurn
+      4 -> do
+        return MakeTurn
+      5 -> do
+        c <- B.get
+        return $ TakeCard c
 
 
 instance B.Binary Player where
@@ -101,7 +115,6 @@ decodePlayer a = (B.decode $ BS.fromStrict a) :: Player
 
 decodeCard :: BB.ByteString -> Card
 decodeCard a = (B.decode $ BS.fromStrict a) :: Card
-
 
 decodeCards :: BB.ByteString -> [Card]
 decodeCards a = (B.decode $ BS.fromStrict a) :: [Card]
