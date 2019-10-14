@@ -22,3 +22,20 @@ assignCards =
       return (shuffle' cards (length cards) g)
 
 
+putCard :: [Field] -> Int -> Player -> Card -> [Field]
+putCard fields ind p card =
+  let left = take (ind - 1) fields
+      right = drop ind fields
+      (Field comb1 comb2 state) = fields !! (ind - 1)
+  in
+    case state of 
+      (Types.Closed pl) -> error "closed"
+      _ -> case p of
+        One -> 
+          if (length comb1) == 3
+          then error "too many cards"
+          else left ++ [Field (comb1 ++ [card]) comb2 state] ++ right
+        Two ->
+          if (length comb2) == 3
+          then error "too many cards"
+          else left ++ [Field comb1 (comb2 ++ [card]) state] ++ right

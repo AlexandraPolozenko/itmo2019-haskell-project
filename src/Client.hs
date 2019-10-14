@@ -1,3 +1,4 @@
+
 module Client where
 
 import Network.Socket hiding (send, sendTo, recv, recvFrom)
@@ -7,13 +8,16 @@ import Types
 import ByteStringParser
 import FieldModifications
 import Graphics
+import Control.Monad.Reader (ReaderT, runReaderT, ask, local, liftIO)
+import Control.Monad.IO.Class (liftIO)
 
+
+portNumber = 5005 :: Int
 
 main :: IO ()
 main = do
-  let f = assignFields 
-  startGameDraw (ClientState One f [Card Yellow 1, Card Red 2, Card Blue 3])
-  -- client "127.0.0.1" 5005
+  client "127.0.0.1" 5005
+
 
 client :: String -> Int -> IO ()
 client host port = withSocketsDo $ do
@@ -22,9 +26,10 @@ client host port = withSocketsDo $ do
   sock <- socket (addrFamily serverAddr) Stream defaultProtocol
   connect sock (addrAddress serverAddr)
   clSt <- startGame sock
-  putStrLn $ show clSt
+  startGameDraw clSt
+  print clSt
+  -- runReaderT (turn sock) clSt
   -- msgSender sock
-  close sock
 
 -- msgSender :: Socket -> IO ()
 -- msgSender sock = do
@@ -37,10 +42,26 @@ client host port = withSocketsDo $ do
 
 startGame :: Socket -> IO ClientState
 startGame s = do
-  pp <- recv s 1000
-  let p = decodePlayer pp 
+  pp <- recv s messageSize
+  let p = decodePlayer pp
   let f = assignFields
-  cc <- recv s 10000
+  cc <- recv s messageSize
   let c = decodeCards cc
-  return $ ClientState p f c
+  return $ ClientState p s f c (PutCardTurn Nothing)
 
+-- turn :: Socket -> ReaderT ClientState IO ()
+-- turn = phasePut
+
+-- phasePut :: Socket -> ReaderT ClientState IO ()
+-- phasePut s = do
+--   cmd <- liftIO $ recv s messageSize
+--   (ClientState p f cs) <- ask
+--   case decodeCommand cmd of
+--     Put -> do
+--       g <- liftIO getStdGen
+--       let card = head (shuffle' cs 7 g)
+--       liftIO $ send s (encode (PutCard 1 p card))
+--       liftIO $ print card
+--       turn s
+--     Win p -> undefined
+--     _ -> error ""
