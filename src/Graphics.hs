@@ -71,7 +71,7 @@ handler _ w = return w
 
 notCorrectField :: Int -> [Field] -> Bool
 notCorrectField n fields = 
-  if n > 8
+  if n > 9
   then True
   else
     let (Field _ _ state) = fields !! n
@@ -80,16 +80,16 @@ notCorrectField n fields =
       _ -> True
 
 getFieldNum :: Char -> Int
-getFieldNum 'a' = 0
-getFieldNum 's' = 1
-getFieldNum 'd' = 2
-getFieldNum 'f' = 3
-getFieldNum 'g' = 4
-getFieldNum 'h' = 5
-getFieldNum 'j' = 6
-getFieldNum 'k' = 7
-getFieldNum 'l' = 8
-getFieldNum _ = 9
+getFieldNum 'a' = 1
+getFieldNum 's' = 2
+getFieldNum 'd' = 3
+getFieldNum 'f' = 4
+getFieldNum 'g' = 5
+getFieldNum 'h' = 6
+getFieldNum 'j' = 7
+getFieldNum 'k' = 8
+getFieldNum 'l' = 9
+getFieldNum _ = 10
 
 getCardNum :: Char -> Int
 getCardNum 'z' = 0

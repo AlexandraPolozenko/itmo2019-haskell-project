@@ -47,7 +47,7 @@ startGame s = do
   let f = assignFields
   cc <- recv s messageSize
   let c = decodeCards cc
-  return $ ClientState p s f c (PutCardTurn Nothing)
+  return $ ClientState p s f c EmptyState
 
 -- turn :: Socket -> ReaderT ClientState IO ()
 -- turn = phasePut

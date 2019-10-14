@@ -64,6 +64,7 @@ turn = phasePut
 
 phasePut :: Socket -> Socket -> ReaderT World IO ()
 phasePut p1 p2 = do
+  liftIO $ print "waiting for client to be ready"
   ok <- liftIO $ recv p1 messageSize
   liftIO $ print $ show ok
   liftIO $ send p1 (encode (Changes []))
@@ -83,7 +84,7 @@ phaseProof :: Socket -> Socket -> ReaderT World IO ()
 phaseProof p1 p2 = do
   w <- ask
   liftIO $ print "turn"
-  liftIO getLine
+  -- liftIO getLine
   turn p2 p1
 
 
