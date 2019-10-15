@@ -2,6 +2,7 @@ module Types (
     World(..)
   , Field(..)
   , Card(..)
+  , Combo(..)
   , StateChanges(..)
   , ClientState(..)
   , Player(..)
@@ -52,6 +53,9 @@ data Changes = Changes [StateChanges]
 
 data Turn = PutCard Int Player Card | MakeProof Int Player [Card] | FinishTurn | TakeCard Card
   deriving (Show, Eq)
+
+data Combo = Host Int | Skirmish Int | Batallion Int | Phalanx Int | Wedge Int
+  deriving (Show, Eq, Ord)
 
 messageSize = 10000 :: Int
 
