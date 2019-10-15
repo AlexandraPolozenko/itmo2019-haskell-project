@@ -14,9 +14,9 @@ import Control.Monad.IO.Class (liftIO)
 
 portNumber = 5005 :: Int
 
-main :: IO ()
-main = do
-  client "127.0.0.1" 5005
+startClient :: Int -> IO ()
+startClient p = do
+  client "127.0.0.1" p
 
 
 client :: String -> Int -> IO ()
@@ -42,11 +42,13 @@ client host port = withSocketsDo $ do
 
 startGame :: Socket -> IO ClientState
 startGame s = do
+  liftIO $ print "game started"
   pp <- recv s messageSize
   let p = decodePlayer pp
   let f = assignFields
   cc <- recv s messageSize
   let c = decodeCards cc
+  liftIO $ print "preparing finished"
   return $ ClientState p s f c EmptyState
 
 -- turn :: Socket -> ReaderT ClientState IO ()

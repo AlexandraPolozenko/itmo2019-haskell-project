@@ -1,10 +1,19 @@
-module ByteStringParser where
+module ByteStringParser(
+    encode
+  , decodeTurn
+  , decodeCommand
+  , decodePlayer
+  , decodeCard
+  , decodeCards
+  , decodeChanges
+  ) where
 
-import Types
 import qualified Data.Binary as B (Binary, Get, put, get, putList, decode, encode)
-import qualified Data.ByteString.Lazy as BS
-import Data.ByteString.Internal as BB
-import Data.Word8
+import qualified Data.ByteString.Lazy as BS (toStrict, fromStrict)
+import Data.ByteString.Internal as BB (ByteString(..))
+import Data.Word8 (Word8(..))
+
+import Types (StateChanges(..), Changes(..), Turn(..), Command(..), Player(..), Card(..), Suit(..))
 
 
 instance B.Binary StateChanges where
@@ -52,9 +61,10 @@ instance B.Binary Turn where
   put (TakeCard c) = do
     B.put (1 :: Word8)
     B.put c
-  put (MakeProof f c) = do
+  put (MakeProof f p c) = do
     B.put (2 :: Word8)
     B.put f
+    B.put p
     B.putList c
   put FinishTurn = do
   	B.put (3 :: Word8)
@@ -71,8 +81,9 @@ instance B.Binary Turn where
         return $ TakeCard c
       2 -> do
         f <- B.get
+        p <- B.get
         c <- B.get
-        return $ MakeProof f c
+        return $ MakeProof f p c
       3 -> return FinishTurn
 
 

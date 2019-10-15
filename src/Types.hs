@@ -1,14 +1,29 @@
-module Types where
+module Types (
+    World(..)
+  , Field(..)
+  , Card(..)
+  , StateChanges(..)
+  , ClientState(..)
+  , Player(..)
+  , TurnState(..)
+  , Suit(..)
+  , FieldState(..)
+  , Command(..)
+  , Changes(..)
+  , Turn(..)
+  , messageSize
+  , defaultCard
+  ) where
 
-import Network.Socket
+import Network.Socket (Socket(..))
 
-data World = World [Field] [Card]
+data World = World [Field] [Card] [StateChanges]
   deriving (Show, Eq)
 
 data ClientState = ClientState Player Socket [Field] [Card] TurnState
   deriving (Show, Eq)
 
-data TurnState = PutCardTurn (Maybe Card) | MakeProofTurn (Maybe Int) [Card] | EmptyState | Start
+data TurnState = PutCardTurn (Maybe Card) | MakeProofTurn (Maybe Int) [Card] | EmptyState | GameFinished Player
   deriving (Show, Eq)
 
 data Card = Card Suit Int
@@ -26,9 +41,6 @@ data FieldState = Closed Player | Open
 data Player = One | Two
   deriving (Show, Eq)
 
--- data Combination = Combination [Card]
---   deriving (Show, Eq)
-
 data Command = Put | Proof | Take Card | Win Player
   deriving (Show, Eq)
 
@@ -38,10 +50,9 @@ data StateChanges = NewCard Int Player Card | FieldClosed Int Player | Winner Pl
 data Changes = Changes [StateChanges]
   deriving (Show, Eq)
 
-data Turn = PutCard Int Player Card | MakeProof Int [Card] | FinishTurn | TakeCard Card
+data Turn = PutCard Int Player Card | MakeProof Int Player [Card] | FinishTurn | TakeCard Card
   deriving (Show, Eq)
 
--- data TurnState = Player | Okay | Error
---   deriving (Show, Eq)
+messageSize = 10000 :: Int
 
-fieldSize = 9 :: Int
+defaultCard = (Card Black 0) :: Card
