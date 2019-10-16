@@ -31,7 +31,8 @@ handler :: Event -> ClientState -> IO ClientState
 handler (EventKey (SpecialKey KeyEsc) Down _ _) _ = exitSuccess
 handler (EventKey (SpecialKey KeySpace) Down _ _) st@(ClientState pl socket fields cards EmptyState) = do
   liftIO $ print "entered critical block"
-  _ <- forkIO $ send socket (B8.pack "ready") >> print "ready"
+  liftIO $ send socket (B8.pack "ready")
+  liftIO $ print "ready"
   ch <- liftIO $ recv socket messageSize
   liftIO $ print "recieved chnges"
   let (Changes changes) = decodeChanges ch
@@ -43,7 +44,6 @@ handler (EventKey (SpecialKey KeySpace) Down _ _) st@(ClientState pl socket fiel
       liftIO $ print $ "recieved command " ++ (show cmd)
       case (decodeCommand cmd) of
         Put -> return (ClientState p sock flds crds (PutCardTurn Nothing))
-        -- Proof -> return (ClientState pl sock flds crds (MakeProofTurn Nothing []))
         _ -> return newSt
     (Just a) -> return (ClientState p sock flds crds (GameFinished a))
 handler (EventKey (Char c) Down _ _) st@(ClientState p socket fields cards (PutCardTurn Nothing)) = do
@@ -66,28 +66,6 @@ handler (EventKey (Char c) Down _ _) st@(ClientState p socket fields cards (PutC
         then return (ClientState p socket (putCard fields n p card) (filter (\e -> e /= card) cards) EmptyState)
         else return (ClientState p socket (putCard fields n p card) ((filter (\e -> e /= card) cards) ++ [crd]) EmptyState)
       _ -> return (ClientState p socket (putCard fields n p card) (filter (\e -> e /= card) cards) EmptyState)
--- handler (EventKey (Char 'q') Down _ _) st@(ClientState p socket fields cards (MakeProofTurn _ _)) = do
---   _ <- forkIO $ send socket (encode (MakeProof 10 p [])) >> print "sent card"
---   com <- liftIO $ recv socket messageSize
---   let cmd = decodeCommand com
---   case cmd of
---     (Take crd) -> return (ClientState p socket fields (cards ++ [crd]) EmptyState)
---     _ -> return st
--- handler (EventKey (Char c) Down _ _) st@(ClientState p socket fields cards (MakeProofTurn Nothing a)) = do
---   let n = getFieldNum c 
---   if notCorrectField n fields
---   then return st
---   else return (ClientState p socket fields cards (MakeProofTurn (Just n) a))
--- handler (EventKey (Char c) Down _ _) st@(ClientState p socket fields cards (MakeProofTurn (Just n) _)) = do
---   _ <- forkIO $ send socket (encode (MakeProof n p [Card Black 0])) >> print "sent card"
---   com <- liftIO $ recv socket messageSize
---   let cmd = decodeCommand com
---   case cmd of
---     (Take crd) -> 
---       if (crd == defaultCard)
---       then return (ClientState p socket (closeField fields n p) cards EmptyState)
---       else return (ClientState p socket (closeField fields n p) (cards ++ [crd]) EmptyState)
---     _ -> return st
 handler _ w = return w
 
 notCorrectField :: Int -> [Field] -> Player -> Bool

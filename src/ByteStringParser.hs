@@ -61,11 +61,6 @@ instance B.Binary Turn where
   put (TakeCard c) = do
     B.put (1 :: Word8)
     B.put c
-  put (MakeProof f p c) = do
-    B.put (2 :: Word8)
-    B.put f
-    B.put p
-    B.putList c
   put FinishTurn = do
   	B.put (3 :: Word8)
   get = do
@@ -79,19 +74,12 @@ instance B.Binary Turn where
       1 -> do
         c <- B.get
         return $ TakeCard c
-      2 -> do
-        f <- B.get
-        p <- B.get
-        c <- B.get
-        return $ MakeProof f p c
       3 -> return FinishTurn
 
 
 instance B.Binary Command where
   put Put = do
     B.put (0 :: Word8)
-  put Proof = do
-    B.put (1 :: Word8)
   put (Take c) = do
     B.put (2 :: Word8)
     B.put c
@@ -102,7 +90,6 @@ instance B.Binary Command where
     t <- B.get :: B.Get Word8
     case t of
       0 -> return Put
-      1 -> return Proof
       2 -> do
         c <- B.get
         return $ Take c

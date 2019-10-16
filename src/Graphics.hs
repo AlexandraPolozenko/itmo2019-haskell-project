@@ -34,8 +34,8 @@ drawPicture :: ClientState -> IO Picture
 drawPicture (ClientState p _ fields cards st) = return $ pictures [(drawField 0 fields), (drawHand (-570) cards), drawState st, drawPlayer p]
 
 drawPlayer :: Player -> Picture
-drawPlayer One = pictures [translate (-100) (-250) $ scale 0.1 0.1 $ color white $ text "Player 1"]
-drawPlayer Two = pictures [translate (-100) (-250) $ scale 0.1 0.1 $ color white $ text "Player 2"]
+drawPlayer One = pictures [translate (-100) (-250) $ scale 0.2 0.2 $ color blue $ text "Player 1"]
+drawPlayer Two = pictures [translate (-100) (-250) $ scale 0.2 0.2 $ color red $ text "Player 2"]
 
 drawState :: TurnState -> Picture
 drawState (GameFinished p) = pictures [translate (-100) (-50) $ color red $ rectangleSolid 600 400
@@ -43,8 +43,6 @@ drawState (GameFinished p) = pictures [translate (-100) (-50) $ color red $ rect
 drawState EmptyState = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "press space to refresh game state"]
 drawState (PutCardTurn Nothing) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose card (z - m)"]
 drawState (PutCardTurn (Just a)) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose field (a - l)"]
--- drawState (MakeProofTurn Nothing _) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose field (a - l), or press q to skip phase"]
--- drawState (MakeProofTurn (Just a) _) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose card (field1: q-z, ...), or press enter to finish"]
 
 drawField :: Int -> [Field] -> Picture
 drawField k (f:[]) = pictures [drawOneField k f]
@@ -97,8 +95,3 @@ drawNumber v Black = [translate (-45) 35 $ scale 0.3 0.3 $ color white $ text (s
 drawNumber v _ = [translate (-45) 35 $ scale 0.3 0.3 $ color black $ text (show v)
                 , rotate 180 $ translate (-45) 35 $ scale 0.3 0.3 $ color black $ text (show v)
                 ]
-
-
-
-
-
