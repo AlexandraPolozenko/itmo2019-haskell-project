@@ -1,0 +1,271 @@
+
+==================== FINAL INTERFACE ====================
+2019-10-16 12:26:16.082419 UTC
+
+interface main:Client 8065
+  interface hash: 6df9c44bb7aaaf65c5a683c2ef4296ff
+  ABI hash: 6180f79fa307acfeff69be7c64fb2e16
+  export-list hash: dbaa0a32989fc61edbbb7661cf4a1cf4
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 65757ef7efc27a712b81722891d79a9d
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Client.client
+  Client.main
+  Client.startGame
+module dependencies: ByteStringParser FieldModifications GameEvents
+                     Graphics Types
+package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.15
+                      MonadRandom-0.5.1.1 ObjectName-1.1.0.1 OpenGL-3.0.3.0
+                      OpenGLRaw-3.3.3.0 StateVar-1.2 array-0.5.3.0 base-4.12.0.0
+                      binary-0.8.6.0 bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1
+                      deepseq-1.4.4.0 fixed-0.3 ghc-boot-th-8.6.5 ghc-prim-0.5.3
+                      gloss-1.13.0.1 gloss-rendering-1.13.1.1 half-0.3
+                      integer-gmp-1.0.2.0 mtl-2.2.2 network-2.8.0.1 pretty-1.1.3.6
+                      primitive-0.6.4.0 random-1.1 random-shuffle-0.0.4 stm-2.5.0.0
+                      template-haskell-2.14.0.0 text-1.2.3.1 time-1.8.0.2
+                      transformers-0.5.6.2 word8-0.1.3
+orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+         text-1.2.3.1:Data.Text.Show
+         transformers-0.5.6.2:Control.Monad.Trans.Error
+         time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian
+         network-2.8.0.1:Network.Socket binary-0.8.6.0:Data.Binary.Generic
+         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: MonadRandom-0.5.1.1:Control.Monad.Trans.Random.Lazy
+                         base-4.12.0.0:Control.Applicative base-4.12.0.0:Data.Complex
+                         base-4.12.0.0:Data.Functor.Compose base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         ghc-boot-th-8.6.5:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.6.5:GHC.LanguageExtensions.Type half-0.3:Numeric.Half
+                         pretty-1.1.3.6:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.4.0:Control.Monad.Primitive
+                         template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.1:Data.Text
+import  -/  base-4.12.0.0:Control.Monad.IO.Class e96805f9d79f75be66a0d44eb83064c1
+import  -/  base-4.12.0.0:GHC.Base c00b75f0b052d05c55ba6a4dd1c63b26
+import  -/  base-4.12.0.0:GHC.List 4014a3c8a3b7c31c8325f6bcf1feea4a
+import  -/  base-4.12.0.0:GHC.Show 838a5d039379d82d9626aae53dfce276
+import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
+import  -/  base-4.12.0.0:System.IO c961e5ee6731c0683a6e879272c9e9f6
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+import  -/  ByteStringParser 0b5256620d6038a1aadb1924d0ad08a4
+  exports: e9267c784a97126959c6cd3339f4b0b5
+  decodeCards fc3d9c520e926142a4a2d187167d6ce2
+  decodePlayer db66d8a9f106e7f46ce76efe01653c57
+import  -/  FieldModifications f96445268a3403225544f0c3409e29f4
+  exports: e38e0343d80065346850be12a768b866
+  assignFields e553a524341897b886e33dc694e4e223
+import  -/  Graphics 41f0bbd1a127da427ba5319c192cd488
+  exports: e6b64ed4fe904b1316dd31417b339a58
+  startGameDraw 275d926529787f0bfcea832e8dcd5abe
+import  -/  Types 13236caea53d0317c396bbb857f84c1f
+  exports: c35108131b97aa56b3b8599551ff8f92
+  ClientState c677500b5c8d3f11db9d2d35a1225ca5
+  ClientState 92a56bc449287a32dfbff349ccb8abf5
+  EmptyState f4711126255dc519ce55733d98b8cc0b
+  messageSize 904dc4e91088d91b35a6494b0eee8ce2
+import  -/  network-2.8.0.1:Network.Socket 2fb10212ee6ec3cda4f5f95de27378a3
+import  -/  network-2.8.0.1:Network.Socket.ByteString 6f7c7de848eff00b79f890f81b0bb183
+import  -/  network-2.8.0.1:Network.Socket.Internal 3199c2e7c8102952472c2e79cef4a0b4
+import  -/  network-2.8.0.1:Network.Socket.Types b396f655f8272982c962f65e0eb004e1
+f2dd56b2b86ea0329bbadaf09e719ab5
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Client.$trModule3
+                   Client.$trModule1) -}
+c7811ce6af9ac4f49e297a546f0521ea
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Client.$trModule2) -}
+41361361c2c332fb0e7d97aadc861102
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Client"#) -}
+10fc87047db4d1c932e62b3beb432a62
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Client.$trModule4) -}
+f9a372e66737c68098d72dbad6aa670e
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("main"#) -}
+7a8ee0149cf53513fa57f44205ea54e7
+  client :: Network.Socket.Types.PortNumber -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,1*U(U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Client.client1
+                  `cast`
+                (<Network.Socket.Types.PortNumber>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+f8133e34d6e9c974f24231e00dcec8f7
+  client1 ::
+    Network.Socket.Types.PortNumber
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <L,1*U(U)><S,U>,
+     Unfolding: (\ (port :: Network.Socket.Types.PortNumber)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case Network.Socket.getAddrInfo1
+                        (GHC.Maybe.Nothing @ Network.Socket.AddrInfo)
+                        Client.client6
+                        (GHC.Maybe.Just
+                           @ GHC.Base.String
+                           (Network.Socket.Types.$fShowPortNumber_$cshow port))
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of wild {
+                   []
+                   -> case GHC.List.badHead
+                      ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                      of {}
+                   : x ds2
+                   -> case x of wild1 { Network.Socket.AddrInfo ds3 ds4 ds5 ds6 ds7 ds8 ->
+                      case Network.Socket.$wsocket
+                             ds4
+                             Network.Socket.Types.Stream
+                             0#
+                             ipv of ds9 { (#,#) ipv2 ipv3 ->
+                      case ipv3 of ww { Network.Socket.Types.MkSocket ww1 ww2 ww3 ww4 ww5 ->
+                      case ww5 of ww6 { GHC.MVar.MVar ww7 ->
+                      case Network.Socket.$wconnect
+                             ww1
+                             ww7
+                             ds7
+                             ipv2 of ds10 { (#,#) ipv4 ipv5 ->
+                      case Client.client2 ww ipv4 of ds11 { (#,#) ipv6 ipv7 ->
+                      Graphics.Gloss.Internals.Interface.Game.playWithBackendIO1
+                        @ Types.ClientState
+                        @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
+                        Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
+                        Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
+                        Graphics.startGameDraw66
+                        Graphics.startGameDraw65
+                        Graphics.startGameDraw64
+                        ipv7
+                        Graphics.startGameDraw3
+                          `cast`
+                        (<Types.ClientState>_R
+                         ->_R Sym (GHC.Types.N:IO[0]
+                                       <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
+                        GameEvents.handler1
+                          `cast`
+                        (<Graphics.Gloss.Internals.Interface.Event.Event>_R
+                         ->_R <Types.ClientState>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R))
+                        Graphics.startGameDraw2
+                          `cast`
+                        (<GHC.Types.Float>_R
+                         ->_R <Types.ClientState>_R
+                         ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R))
+                        GHC.Types.False
+                        ipv6 } } } } } } } }) -}
+c191a13f77d2bfbec752d45cfaefa0e9
+  client2 ::
+    Network.Socket.Types.Socket
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Types.ClientState #)
+  {- Arity: 2, Strictness: <L,U(U(U),U,U,U,U)><S,U>,
+     Unfolding: (\ (sock :: Network.Socket.Types.Socket)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case (GHC.IO.Handle.Text.hPutStr'
+                         GHC.IO.Handle.FD.stdout
+                         Client.client3
+                         GHC.Types.True)
+                        `cast`
+                      (GHC.Types.N:IO[0] <()>_R)
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 case Network.Socket.ByteString.$wrecv
+                        sock
+                        10000#
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case Network.Socket.ByteString.$wrecv
+                        sock
+                        10000#
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 (# ipv4,
+                    Types.ClientState
+                      (Data.Binary.Get.runGet3
+                         @ Types.Player
+                         ByteStringParser.decodePlayer1
+                         (Data.ByteString.Lazy.fromStrict ipv3))
+                      sock
+                      FieldModifications.assignFields
+                      (ByteStringParser.decodeCards ipv5)
+                      Types.EmptyState #) } } }) -}
+45b35987d4e2ddc6bf76151a9e08e8c8
+  client3 :: [GHC.Types.Char]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.$fShow(,)3
+                   Client.client4) -}
+e6d8572917079c077e8c5dbbada29902
+  client4 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   (GHC.CString.unpackCString# Client.client5)
+                   GHC.Show.$fShow[]1) -}
+5147685938b5f7597009d71cd28d6252
+  client5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("game started"#) -}
+bbfc0551e71cc0afbeb14fc8a58b2990
+  client6 :: GHC.Maybe.Maybe [GHC.Types.Char]
+  {- Strictness: m2,
+     Unfolding: (GHC.Maybe.Just @ [GHC.Types.Char] Client.client7) -}
+e672a4ba128d5115a83772c5eddcb3bd
+  client7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# Client.client8) -}
+74db614753316547adb203d1806602cf
+  client8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("127.0.0.1"#) -}
+5a006857a0fa10eb2e7b16c534495d62
+  main :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                Client.main1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+ac7267793291b305c5e5c3b320c62842
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (Client.client1
+                   Client.main2
+                     `cast`
+                   (Sym (Network.Socket.Types.N:PortNumber[0]))) -}
+e48eedece7633451c855c6c530ab5edd
+  main2 :: GHC.Word.Word16
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Word.W16# 5005##) -}
+ad5ec06dcb38cafd53736065724f0edb
+  startGame ::
+    Network.Socket.Types.Socket -> GHC.Types.IO Types.ClientState
+  {- Arity: 2, Strictness: <L,U(U(U),U,U,U,U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                Client.client2
+                  `cast`
+                (<Network.Socket.Types.Socket>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R)) -}
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+

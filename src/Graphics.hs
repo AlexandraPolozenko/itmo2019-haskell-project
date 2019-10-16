@@ -28,6 +28,7 @@ import GameEvents (handler)
 startGameDraw :: ClientState -> IO ()
 startGameDraw initState = playIO (InWindow "myWindow" (600, 350) (0, 0)) (greyN 0.25) 30 initState drawPicture handler updater
 
+updater :: Float -> ClientState -> IO ClientState
 updater _ w = return w
 
 drawPicture :: ClientState -> IO Picture
@@ -42,15 +43,16 @@ drawState (GameFinished p) = pictures [translate (-100) (-50) $ color red $ rect
                                       , translate (-100) (-25) $ scale 0.3 0.3 $ color black $ text $ "Player " ++ (show p) ++ " win"]
 drawState EmptyState = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "press space to refresh game state"]
 drawState (PutCardTurn Nothing) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose card (z - m)"]
-drawState (PutCardTurn (Just a)) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose field (a - l)"]
+drawState (PutCardTurn _) = pictures [translate (-100) (-300) $ scale 0.2 0.2 $ color white $ text "choose field (a - l)"]
 
 drawField :: Int -> [Field] -> Picture
 drawField k (f:[]) = pictures [drawOneField k f]
 drawField k (f:fields) = pictures [drawOneField k f, drawField (k + 1) fields]
+drawField _ [] = pictures []
 
 drawOneField :: Int -> Field -> Picture
-drawOneField id (Field comb1 comb2 state) = 
-  let w = fromIntegral ((-490) + 120 * id) :: Float
+drawOneField f (Field comb1 comb2 state) = 
+  let w = fromIntegral ((-490) + 120 * f) :: Float
       p = pictures [(drawCombinationDown w (-15) comb1), (drawCombinationUp w 185 comb2), (drawCombinationSeparator w 85)]
   in
     case state of 

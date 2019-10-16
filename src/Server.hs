@@ -1,13 +1,11 @@
 module Server where
 
 import Control.Concurrent (forkIO)
-import System.Environment (getArgs)
 import Network.Socket hiding (send, recv)
 import Network.Socket.ByteString (send, recv)
 import System.Random.Shuffle (shuffle')
 import System.Random (getStdGen)
 import Control.Monad.Reader (ReaderT, runReaderT, ask, local, liftIO)
-import Control.Monad.IO.Class (liftIO)
 import Data.List (sortBy)
 
 import FieldModifications
@@ -28,6 +26,9 @@ import Types (
   )
 
 
+main :: IO ()
+main = server 5005
+
 server :: PortNumber -> IO ()
 server port = withSocketsDo $ do
                 sock <- socket AF_INET Stream defaultProtocol
@@ -36,12 +37,11 @@ server port = withSocketsDo $ do
                 sockHandler sock
                 close sock
 
-
 sockHandler :: Socket -> IO ()
 sockHandler sock = do
   (sock1, _) <- accept sock
   (sock2, _) <- accept sock
-  (player1:player2:empty) <- setPlayers [sock1, sock2]
+  (player1:player2:_) <- setPlayers [sock1, sock2]
   _ <- forkIO $ send player1 (encode One) >> putStrLn "Player One"
   _ <- forkIO $ send player2 (encode Two) >> putStrLn "Player Two"
   world <- startGame player1 player2
@@ -63,20 +63,17 @@ phasePut :: Socket -> Socket -> ReaderT World IO ()
 phasePut p1 p2 = do
   (World fields cards changes) <- ask
   liftIO $ print "waiting for client to be ready"
-  ok <- liftIO $ recv p1 messageSize
-  liftIO $ print $ show ok
   let pl = checkWinner fields
   case pl of
     (Just a) -> do
       liftIO $ print $ "found winner" ++ show a
-      liftIO $ send p1 (encode (Changes (changes ++ [Winner a])))
+      _ <- liftIO $ send p1 (encode (Changes (changes ++ [Winner a])))
       _ <- liftIO $ recv p2 messageSize
-      liftIO $ send p2 (encode (Changes (changes ++ [Winner a])))
+      _ <- liftIO $ send p2 (encode (Changes (changes ++ [Winner a])))
       return ()
     Nothing -> do
-      liftIO $ send p1 (encode (Changes changes))
+      _ <- liftIO $ send p1 (encode (Changes changes))
       liftIO $ print $ "going to send"
-      liftIO $ send p1 (encode Put)
       liftIO $ print "waiting for message"
       t <- liftIO $ recv p1 messageSize
       liftIO $ print $ "recieved" ++ (show t)
@@ -86,7 +83,7 @@ phasePut p1 p2 = do
           let flds = putCard fields fNum p c
           let chngs = (filter filterClosedFields changes) ++ [NewCard fNum p c]
           let (card, left) = if (length cards) == 0 then (defaultCard, []) else ((head cards), (tail cards))
-          liftIO $ send p1 (encode (Take card))
+          _ <- liftIO $ send p1 (encode (Take card))
           case checkField (flds !! (fNum - 1)) of 
             Open -> local (\ (World _ _ _) -> (World flds left chngs)) (phasePut p2 p1)
             (Types.Closed player) -> local (\ (World _ _ _) -> (World flds left (chngs ++ [FieldClosed fNum player]))) (phasePut p2 p1)
@@ -122,7 +119,7 @@ combo cards
       then (Just (Skirmish i3))
       else (Just (Host (i1 + i2 + i3)))
   where
-    (c1@(Card s1 i1):c2@(Card s2 i2):c3@(Card s3 i3):empty) =
+    ((Card s1 i1):(Card s2 i2):(Card s3 i3):_) =
       sortBy (\(Card _ a) (Card _ b) -> compare a b) cards
     suitsEqual = (s1 == s2) && (s2 == s3)
     valuesEqual = (i1 == i2) && (i2 == i3)
@@ -155,10 +152,10 @@ fiveFields [] b1 b2
   | b1 == 5 = (Just One)
   | b2 == 5 = (Just Two)
   | otherwise = Nothing
-fiveFields ((Field _ _ st):fields) b1 b2 = 
+fiveFields ((Field _ _ st):fields) b1 b2 
   | b1 == 5 = (Just One)
   | b2 == 5 = (Just Two)
-  | otherwise
+  | otherwise =
     case st of
       Open -> fiveFields fields b1 b2
       (Types.Closed One) -> fiveFields fields (b1 + 1) b2

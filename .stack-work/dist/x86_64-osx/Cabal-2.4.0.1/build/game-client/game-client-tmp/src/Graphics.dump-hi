@@ -1,0 +1,619 @@
+
+==================== FINAL INTERFACE ====================
+2019-10-16 12:26:15.972001 UTC
+
+interface main:Graphics 8065
+  interface hash: db06150768d0d03f419809ac83637de5
+  ABI hash: 41f0bbd1a127da427ba5319c192cd488
+  export-list hash: e6b64ed4fe904b1316dd31417b339a58
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 65757ef7efc27a712b81722891d79a9d
+  opt_hash: 6faf2de08de32d19db9870899d88e59a
+  hpc_hash: 93b885adfe0da089cdf634904fd59f71
+  plugin_hash: ad164012d6b1e14942349d58b1132007
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Graphics.startGameDraw
+module dependencies: ByteStringParser FieldModifications GameEvents
+                     Types
+package dependencies: GLURaw-2.0.0.4 GLUT-2.7.0.15
+                      MonadRandom-0.5.1.1 ObjectName-1.1.0.1 OpenGL-3.0.3.0
+                      OpenGLRaw-3.3.3.0 StateVar-1.2 array-0.5.3.0 base-4.12.0.0
+                      binary-0.8.6.0 bmp-1.2.6.3 bytestring-0.10.8.2 containers-0.6.0.1
+                      deepseq-1.4.4.0 fixed-0.3 ghc-boot-th-8.6.5 ghc-prim-0.5.3
+                      gloss-1.13.0.1 gloss-rendering-1.13.1.1 half-0.3
+                      integer-gmp-1.0.2.0 mtl-2.2.2 network-2.8.0.1 pretty-1.1.3.6
+                      primitive-0.6.4.0 random-1.1 random-shuffle-0.0.4 stm-2.5.0.0
+                      template-haskell-2.14.0.0 text-1.2.3.1 time-1.8.0.2
+                      transformers-0.5.6.2 word8-0.1.3
+orphans: stm-2.5.0.0:Control.Monad.STM text-1.2.3.1:Data.Text
+         text-1.2.3.1:Data.Text.Show
+         transformers-0.5.6.2:Control.Monad.Trans.Error
+         time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian
+         network-2.8.0.1:Network.Socket binary-0.8.6.0:Data.Binary.Generic
+         bytestring-0.10.8.2:Data.ByteString.Builder base-4.12.0.0:GHC.Float
+         base-4.12.0.0:GHC.Base
+family instance modules: MonadRandom-0.5.1.1:Control.Monad.Trans.Random.Lazy
+                         base-4.12.0.0:Control.Applicative base-4.12.0.0:Data.Complex
+                         base-4.12.0.0:Data.Functor.Compose base-4.12.0.0:Data.Functor.Const
+                         base-4.12.0.0:Data.Functor.Identity
+                         base-4.12.0.0:Data.Functor.Product base-4.12.0.0:Data.Functor.Sum
+                         base-4.12.0.0:Data.Monoid base-4.12.0.0:Data.Semigroup
+                         base-4.12.0.0:Data.Semigroup.Internal base-4.12.0.0:Data.Version
+                         base-4.12.0.0:Data.Void base-4.12.0.0:GHC.Exts
+                         base-4.12.0.0:GHC.Generics base-4.12.0.0:GHC.IO.Exception
+                         containers-0.6.0.1:Data.IntMap.Internal
+                         containers-0.6.0.1:Data.IntSet.Internal
+                         containers-0.6.0.1:Data.Map.Internal
+                         containers-0.6.0.1:Data.Sequence.Internal
+                         containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
+                         ghc-boot-th-8.6.5:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.6.5:GHC.LanguageExtensions.Type half-0.3:Numeric.Half
+                         pretty-1.1.3.6:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.6:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.4.0:Control.Monad.Primitive
+                         template-haskell-2.14.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.1:Data.Text
+import  -/  base-4.12.0.0:GHC.Base c00b75f0b052d05c55ba6a4dd1c63b26
+import  -/  base-4.12.0.0:GHC.Num c2039f03637c68f47b0bbff4c18ec616
+import  -/  base-4.12.0.0:GHC.Real af2b985dd29515c375fb78b2c9298d42
+import  -/  base-4.12.0.0:GHC.Show 838a5d039379d82d9626aae53dfce276
+import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
+import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
+import  -/  gloss-1.13.0.1:Graphics.Gloss 4d36f7d6f882fc4a32496cd61c986b4c
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 6bf902405cc88a6ba6ca7ca3b4cb75c6
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Display 82cc33b081e2725cf7390296a9349e58
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture 97e7ac281e7ef640aa6cb060a903dabc
+import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.IO.Game c924360cb0ed7353541d6884901050f2
+import  -/  gloss-rendering-1.13.1.1:Graphics.Gloss.Internals.Data.Picture ecebad8b9e3a818c032b6108499f3acd
+import  -/  GameEvents 0f7db4f5fac5f1c75a7262697b1e8ffd
+  exports: f2fc58106f71d2ad5a29efffa9e14f0e
+  handler 3c2bd9e931839f0e99fb0b98d6662710
+import  -/  Types 13236caea53d0317c396bbb857f84c1f
+  exports: c35108131b97aa56b3b8599551ff8f92
+  Black 3bc538798e1e14ead1378fb01c50fa95
+  Blue 351991bd6fab8d4bbee057c6e0d250c2
+  Card 51525d39284d58b90b8fb4a0ee597ad4
+  Card e0f58c3cad8c4e390d59f73d44aec0aa
+  ClientState c677500b5c8d3f11db9d2d35a1225ca5
+  ClientState 92a56bc449287a32dfbff349ccb8abf5
+  Closed 4fba621562a0f3da41024aec310a25ed
+  EmptyState f4711126255dc519ce55733d98b8cc0b
+  Field 0b58f1fe7e85fbc232b258f2fa1f1cad
+  Field 02d0b769e45d511e621211e0ee648c51
+  GameFinished 23348445284025694e67211849058647
+  Green c32392d0d513a32c9318f944b821f0b7
+  One 457b4b567886ccddbd5529458de2a794
+  Player 31ba73326e5209545eb7e8d451ba07b2
+  PutCardTurn b9b6048123b5312cac6fed3d40fef3de
+  Red d8a4facdefb75b9a70f9825d20f595f7
+  Suit c6aaad662d2e2042df94e10c8a1f0cc2
+  TurnState 75addb716e493a16074269a20e29c6f5
+  Two 3d1b9bd4c691acc6e77e468ded2f9411
+  White fdf2ad8368150de27e928df169cedfc7
+  Yellow 8c3376bee24b3627718326340686b6c1
+376d0d1dcd0d11164d3f17659e4d85ed
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   Graphics.$trModule3
+                   Graphics.$trModule1) -}
+8a328cfbdf4d9a76753fabe630dce9a0
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Graphics.$trModule2) -}
+24a0b15cbf08ea286be7821ecfde3d84
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Graphics"#) -}
+e38ebe505f88d67dfb7999ae1387963e
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Graphics.$trModule4) -}
+7afdae98586f54130cdda0b41b12c51b
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("main"#) -}
+c27baa2dbf85bab35ecc57075f7bef11
+  $wdrawField ::
+    GHC.Types.Int
+    -> [Types.Field]
+    -> (# [Graphics.Gloss.Internals.Data.Picture.Picture] #)
+  {- Arity: 2, Strictness: <L,U(U)><S,1*U>, Inline: [2] -}
+e23b072297d28f70a6737b654209b4ae
+  $wdrawHand ::
+    GHC.Types.Float
+    -> [Types.Card]
+    -> (# [Graphics.Gloss.Internals.Data.Picture.Picture] #)
+  {- Arity: 2, Strictness: <L,U(U)><S,1*U>, Inline: [2] -}
+405e82ac0b966ea4141e3a22800cded4
+  $wdrawPicture ::
+    Types.Player
+    -> [Types.Field]
+    -> [Types.Card]
+    -> Types.TurnState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.Gloss.Internals.Data.Picture.Picture #)
+  {- Arity: 5, Strictness: <L,1*U><L,1*U><L,1*U><L,1*U><S,U>,
+     Inline: [2],
+     Unfolding: (\ (ww :: Types.Player)
+                   (ww1 :: [Types.Field])
+                   (ww2 :: [Types.Card])
+                   (ww3 :: Types.TurnState)
+                   (w :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 (# w,
+                    Graphics.Gloss.Internals.Data.Picture.Pictures
+                      (GHC.Types.:
+                         @ Graphics.Gloss.Internals.Data.Picture.Picture
+                         (case Graphics.$wdrawField
+                                 Graphics.startGameDraw63
+                                 ww1 of ww4 { Unit# ww5 ->
+                          Graphics.Gloss.Internals.Data.Picture.Pictures ww5 })
+                         (GHC.Types.:
+                            @ Graphics.Gloss.Internals.Data.Picture.Picture
+                            (case Graphics.$wdrawHand
+                                    Graphics.startGameDraw62
+                                    ww2 of ww4 { Unit# ww5 ->
+                             Graphics.Gloss.Internals.Data.Picture.Pictures ww5 })
+                            (GHC.Types.:
+                               @ Graphics.Gloss.Internals.Data.Picture.Picture
+                               (case ww3 of wild {
+                                  Types.PutCardTurn ds
+                                  -> case ds of wild1 {
+                                       GHC.Maybe.Nothing -> Graphics.startGameDraw54
+                                       GHC.Maybe.Just ipv -> Graphics.startGameDraw46 }
+                                  Types.EmptyState -> Graphics.startGameDraw37
+                                  Types.GameFinished p
+                                  -> Graphics.Gloss.Internals.Data.Picture.Pictures
+                                       (GHC.Types.:
+                                          @ Graphics.Gloss.Internals.Data.Picture.Picture
+                                          Graphics.startGameDraw30
+                                          (GHC.Types.:
+                                             @ Graphics.Gloss.Internals.Data.Picture.Picture
+                                             (Graphics.Gloss.Internals.Data.Picture.Translate
+                                                Graphics.startGameDraw14
+                                                Graphics.startGameDraw29
+                                                (Graphics.Gloss.Internals.Data.Picture.Scale
+                                                   Graphics.startGameDraw28
+                                                   Graphics.startGameDraw28
+                                                   (Graphics.Gloss.Internals.Data.Picture.Color
+                                                      Graphics.Gloss.Data.Color.black
+                                                      (Graphics.Gloss.Internals.Data.Picture.Text
+                                                         (GHC.CString.unpackAppendCString#
+                                                            Graphics.startGameDraw27
+                                                            (case p of wild1 {
+                                                               Types.One -> Graphics.startGameDraw26
+                                                               Types.Two
+                                                               -> Graphics.startGameDraw23 }))))))
+                                             (GHC.Types.[]
+                                                @ Graphics.Gloss.Internals.Data.Picture.Picture))) })
+                               (GHC.Types.:
+                                  @ Graphics.Gloss.Internals.Data.Picture.Picture
+                                  (case ww of wild {
+                                     Types.One -> Graphics.startGameDraw15
+                                     Types.Two -> Graphics.startGameDraw4 })
+                                  (GHC.Types.[]
+                                     @ Graphics.Gloss.Internals.Data.Picture.Picture))))) #)) -}
+275d926529787f0bfcea832e8dcd5abe
+  startGameDraw :: Types.ClientState -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Graphics.startGameDraw1
+                  `cast`
+                (<Types.ClientState>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+8b81b3a1fcff107a4e6ab672075f0826
+  startGameDraw1 ::
+    Types.ClientState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <L,U>,
+     Unfolding: (\ (initState :: Types.ClientState) ->
+                 Graphics.Gloss.Internals.Interface.Game.playWithBackendIO1
+                   @ Types.ClientState
+                   @ Graphics.Gloss.Internals.Interface.Backend.GLUT.GLUTState
+                   Graphics.Gloss.Internals.Interface.Backend.GLUT.$fBackendGLUTState
+                   Graphics.Gloss.Internals.Interface.Backend.GLUT.glutStateInit
+                   Graphics.startGameDraw66
+                   Graphics.startGameDraw65
+                   Graphics.startGameDraw64
+                   initState
+                   Graphics.startGameDraw3
+                     `cast`
+                   (<Types.ClientState>_R
+                    ->_R Sym (GHC.Types.N:IO[0]
+                                  <Graphics.Gloss.Internals.Data.Picture.Picture>_R))
+                   GameEvents.handler1
+                     `cast`
+                   (<Graphics.Gloss.Internals.Interface.Event.Event>_R
+                    ->_R <Types.ClientState>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R))
+                   Graphics.startGameDraw2
+                     `cast`
+                   (<GHC.Types.Float>_R
+                    ->_R <Types.ClientState>_R
+                    ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R))
+                   GHC.Types.False) -}
+38c9e533be7154b256304d8c7b4d3353
+  startGameDraw10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw11) -}
+d528d049070ec4d4152e1fb3a1acac8f
+  startGameDraw11 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Player 2"#) -}
+c6bef6fed5ebe889cf2b2f41b51e02a9
+  startGameDraw12 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 0.2#) -}
+2a638902bc15d9ba0e3adb959d66d98a
+  startGameDraw13 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.F# -250.0#) -}
+bf07b1994b946233bed4e09005c2cb76
+  startGameDraw14 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.F# -100.0#) -}
+b9db6bffb4f8a6126fa864056285aeaa
+  startGameDraw15 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m15,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Pictures
+                   Graphics.startGameDraw16) -}
+a2ef07779a8d04dc650f9c469591dd15
+  startGameDraw16 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Picture
+                   Graphics.startGameDraw17
+                   (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
+47a515695097d809dafaeb83ae792c3c
+  startGameDraw17 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Graphics.startGameDraw14
+                   Graphics.startGameDraw13
+                   Graphics.startGameDraw18) -}
+a29faf3ab536583c58ec8b73faa4486e
+  startGameDraw18 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m14,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Scale
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw19) -}
+05602abd01e3801e11c090928b88ed89
+  startGameDraw19 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.blue
+                   Graphics.startGameDraw20) -}
+f535f8b8bbb73fdec3d5ad91c6416dd7
+  startGameDraw2 ::
+    GHC.Types.Float
+    -> Types.ClientState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, Types.ClientState #)
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,U><S,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ (ds :: GHC.Types.Float)
+                   (w :: Types.ClientState)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 (# s, w #)) -}
+90142098813de4b0ddf547436d8e2cb1
+  startGameDraw20 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Graphics.startGameDraw21) -}
+6eea616d86c07d282cfdc3f25959dc52
+  startGameDraw21 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw22) -}
+b71a84ce8f5a88f993c095978bc1c9fc
+  startGameDraw22 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Player 1"#) -}
+0fa42afc0c101703645102dd8a235c78
+  startGameDraw23 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   Types.$fShowClientState4
+                   Graphics.startGameDraw24) -}
+da4791afee6024e046e0d5a01aa2adc8
+  startGameDraw24 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw25) -}
+08dfc63418e8d4d8b48344d395da945d
+  startGameDraw25 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" win"#) -}
+fec2bbcbe83a6515bc596d8ae0560ae7
+  startGameDraw26 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Base.++
+                   @ GHC.Types.Char
+                   Types.$fShowClientState6
+                   Graphics.startGameDraw24) -}
+624d10bcd9da453589b51415307062d8
+  startGameDraw27 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Player "#) -}
+ac3513bc49c176656ea31ef9e530f971
+  startGameDraw28 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 0.3#) -}
+1ed2efaab1b1b1b2bc6d68b2337eda6d
+  startGameDraw29 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# -25.0#) -}
+9080a8dc67542de7cc78a94a4d040615
+  startGameDraw3 ::
+    Types.ClientState
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Graphics.Gloss.Internals.Data.Picture.Picture #)
+  {- Arity: 2, Strictness: <S,1*U(1*U,A,1*U,1*U,1*U)><S,U>,
+     Inline: [2],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: Types.ClientState)
+                   (w1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w of ww { Types.ClientState ww1 ww2 ww3 ww4 ww5 ->
+                 Graphics.$wdrawPicture ww1 ww3 ww4 ww5 w1 }) -}
+ebe772607092f5c0f92276edb0e39aaf
+  startGameDraw30 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Graphics.startGameDraw14
+                   Graphics.startGameDraw36
+                   Graphics.startGameDraw31) -}
+90075bf24055a380107d0d686d3c1107
+  startGameDraw31 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.red
+                   Graphics.startGameDraw32) -}
+a857849f59fdedc5f18955f0ccdd7008
+  startGameDraw32 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m2,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Polygon
+                   Graphics.startGameDraw33) -}
+f9db01ef771532a68b63aecf00e761e0
+  startGameDraw33 :: Graphics.Gloss.Internals.Data.Picture.Path
+  {- Unfolding: (case Graphics.Gloss.Data.Picture.$wrectanglePath
+                        Graphics.startGameDraw35
+                        Graphics.startGameDraw34 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Point
+                   ww1
+                   ww2 }) -}
+b7d01b0338f1a526dc3a65ef57513773
+  startGameDraw34 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 400.0#) -}
+11667358c0313726da80c959b85f3b94
+  startGameDraw35 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 600.0#) -}
+ab4ca5553ed3566115e4b5908845b59a
+  startGameDraw36 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# -50.0#) -}
+5ca74d057a8d2550a18f24a4217300d5
+  startGameDraw37 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m15,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Pictures
+                   Graphics.startGameDraw38) -}
+94b265657a3b7dff8f0d7cabef49eff8
+  startGameDraw38 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Picture
+                   Graphics.startGameDraw39
+                   (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
+1713e305ccf016a9f9ea75f25703e03f
+  startGameDraw39 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Graphics.startGameDraw14
+                   Graphics.startGameDraw45
+                   Graphics.startGameDraw40) -}
+0ee7b26e033b6c5634a86af4e3e4f41c
+  startGameDraw4 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m15,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Pictures
+                   Graphics.startGameDraw5) -}
+81f46079e514ea671bbb5f536428ebd4
+  startGameDraw40 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m14,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Scale
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw41) -}
+6f3d2d55a946a2cb5a8efa0cc82596af
+  startGameDraw41 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.white
+                   Graphics.startGameDraw42) -}
+eb9e960e5bf62735f1b20f649c9c7f5a
+  startGameDraw42 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Graphics.startGameDraw43) -}
+a43f514af6555d7f766bf1b7326c0aeb
+  startGameDraw43 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw44) -}
+d7208cf6cd05b6faa217f2db24f79d5b
+  startGameDraw44 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("press space to refresh game state"#) -}
+8844ffe67be7b9f55c59ac5ab6580abe
+  startGameDraw45 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.F# -300.0#) -}
+5da6c2959a58f088f673a1bc96c2d18d
+  startGameDraw46 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m15,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Pictures
+                   Graphics.startGameDraw47) -}
+669a858c4f1c4025afc397be87aefa0b
+  startGameDraw47 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Picture
+                   Graphics.startGameDraw48
+                   (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
+d59aa995242d1836b6fcc525f0060d6c
+  startGameDraw48 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Graphics.startGameDraw14
+                   Graphics.startGameDraw45
+                   Graphics.startGameDraw49) -}
+a1b37b51ce3eb3e6c8bab0698188ec65
+  startGameDraw49 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m14,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Scale
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw50) -}
+b7b04d1a73f09a2c7e543ccda41e5c60
+  startGameDraw5 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Picture
+                   Graphics.startGameDraw6
+                   (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
+153af34d73fb4c141b9e6b30f6971b3d
+  startGameDraw50 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.white
+                   Graphics.startGameDraw51) -}
+27edb0d8e67e0221e7db652ff49e77a3
+  startGameDraw51 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Graphics.startGameDraw52) -}
+7a204958f50d645147ca7d0b0aaf8790
+  startGameDraw52 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw53) -}
+113360a64a2b5642df22c318f5dc7280
+  startGameDraw53 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("choose field (a - l)"#) -}
+fe88c11b74e9de6b4be92fb16a20a787
+  startGameDraw54 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m15,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Pictures
+                   Graphics.startGameDraw55) -}
+7fc1e8e3647e94c2e46cd12bd5d3c3e3
+  startGameDraw55 :: [Graphics.Gloss.Internals.Data.Picture.Picture]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ Graphics.Gloss.Internals.Data.Picture.Picture
+                   Graphics.startGameDraw56
+                   (GHC.Types.[] @ Graphics.Gloss.Internals.Data.Picture.Picture)) -}
+ab59cbc1c60546b3fe475fddbd32f377
+  startGameDraw56 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Graphics.startGameDraw14
+                   Graphics.startGameDraw45
+                   Graphics.startGameDraw57) -}
+61bf6f53aae71a0226fd85c0a4c32eca
+  startGameDraw57 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m14,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Scale
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw58) -}
+4ae50ce25205e0f17d2ce020faa9076f
+  startGameDraw58 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.white
+                   Graphics.startGameDraw59) -}
+040565a620e62dd87b766e9a1a3b1587
+  startGameDraw59 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Graphics.startGameDraw60) -}
+34b816b93f2f7c76501b872f8deea9a5
+  startGameDraw6 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m12,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Translate
+                   Graphics.startGameDraw14
+                   Graphics.startGameDraw13
+                   Graphics.startGameDraw7) -}
+3e4936d0a32f58a0317f203d43b8622d
+  startGameDraw60 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw61) -}
+13a8d476d2f26895b36ee7fecfea3ffb
+  startGameDraw61 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("choose card (z - m)"#) -}
+57ffbca6a9015cdac861e75974da5705
+  startGameDraw62 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.F# -570.0#) -}
+eaeb7295cff9383bf65ec29762311f79
+  startGameDraw63 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+9ccb8fa959686b3e16131af777276ea6
+  startGameDraw64 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 30#) -}
+f26abb68853f5700c584b08811eb1056
+  startGameDraw65 :: Graphics.Gloss.Internals.Data.Color.Color
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (Graphics.Gloss.Internals.Data.Color.RGBA
+                   0.25#
+                   0.25#
+                   0.25#
+                   1.0#) -}
+409c935c974e3d50f570d89b3b201175
+  startGameDraw66 :: Graphics.Gloss.Data.Display.Display
+  {- Strictness: m1,
+     Unfolding: (Graphics.Gloss.Data.Display.InWindow
+                   Graphics.startGameDraw71
+                   Graphics.startGameDraw68
+                   Graphics.startGameDraw67) -}
+cad9ba2ccec5f227609d52f019b3a40a
+  startGameDraw67 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Graphics.startGameDraw63,
+                  Graphics.startGameDraw63)) -}
+12e4f582e2afcc84191d83193e51e9b7
+  startGameDraw68 :: (GHC.Types.Int, GHC.Types.Int)
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: ((Graphics.startGameDraw70,
+                  Graphics.startGameDraw69)) -}
+4fd0965585541a93839af4354526dd6d
+  startGameDraw69 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 350#) -}
+ea2cc23f78f22a8580ea2b0131e015f0
+  startGameDraw7 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m14,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Scale
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw12
+                   Graphics.startGameDraw8) -}
+500747b13ea8eb8fda6181510d53eaf4
+  startGameDraw70 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 600#) -}
+0d1b23ee0cd6e9d020bcedb09200e4f6
+  startGameDraw71 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   Graphics.startGameDraw72) -}
+c1d9b758fbd960eae6b25ec29a16106d
+  startGameDraw72 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("myWindow"#) -}
+cdde8b06cb51b7890510f869e3d2ba71
+  startGameDraw8 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m11,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
+                   Graphics.Gloss.Data.Color.red
+                   Graphics.startGameDraw9) -}
+ba11ddf9a329df0c8edae09c829554a1
+  startGameDraw9 :: Graphics.Gloss.Internals.Data.Picture.Picture
+  {- Strictness: m8,
+     Unfolding: (Graphics.Gloss.Internals.Data.Picture.Text
+                   Graphics.startGameDraw10) -}
+trusted: none
+require own pkg trusted: False
+module header:
+  Nothing
+declaration docs:
+arg docs:
+
