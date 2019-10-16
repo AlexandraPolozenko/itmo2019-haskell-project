@@ -1,0 +1,60 @@
+Configuring tasty-1.2.3...
+Preprocessing library for tasty-1.2.3..
+Building library for tasty-1.2.3..
+
+[;1mTest/Tasty/Runners/Utils.hs:27:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined][0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m27 |[0m[0m #if [;1m[31mI[0m[0mNSTALL_HANDLERS
+[;1m[34m   |[0m[0m[;1m[31m     ^[0m[0m
+[0m[0m[0m#if INSTALL_HANDLERS
+    ^
+
+[;1mTest/Tasty/Runners/Utils.hs:25:26: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+     note: expanded from macro 'INSTALL_HANDLERS'[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m25 |[0m[0m #define INSTALL_HANDLERS [;1m[31md[0m[0mefined __UNIX__ && MIN_VERSION_base(4,6,0)
+[;1m[34m   |[0m[0m[;1m[31m                          ^[0m[0m
+[0m[0m[0m#define INSTALL_HANDLERS defined __UNIX__ && MIN_VERSION_base(4,6,0)
+                         ^
+
+[;1mTest/Tasty/Runners/Utils.hs:71:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+     warning: macro expansion producing 'defined' has undefined behavior [-Wexpansion-to-defined][0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m71 |[0m[0m #if [;1m[31mI[0m[0mNSTALL_HANDLERS
+[;1m[34m   |[0m[0m[;1m[31m     ^[0m[0m
+[0m[0m[0m#if INSTALL_HANDLERS
+    ^
+
+[;1mTest/Tasty/Runners/Utils.hs:25:26: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+     note: expanded from macro 'INSTALL_HANDLERS'[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m25 |[0m[0m #define INSTALL_HANDLERS [;1m[31md[0m[0mefined __UNIX__ && MIN_VERSION_base(4,6,0)
+[;1m[34m   |[0m[0m[;1m[31m                          ^[0m[0m
+[0m[0m[0m#define INSTALL_HANDLERS defined __UNIX__ && MIN_VERSION_base(4,6,0)
+                         ^
+2 warnings generated.
+[ 1 of 22] Compiling Test.Tasty.Options ( Test/Tasty/Options.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Options.o )
+[ 2 of 22] Compiling Test.Tasty.Parallel ( Test/Tasty/Parallel.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Parallel.o )
+[ 3 of 22] Compiling Test.Tasty.Patterns.Expr ( Test/Tasty/Patterns/Expr.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Patterns/Expr.o )
+[ 4 of 22] Compiling Test.Tasty.Patterns.Types ( Test/Tasty/Patterns/Types.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Patterns/Types.o )
+[ 5 of 22] Compiling Test.Tasty.Patterns.Parser ( Test/Tasty/Patterns/Parser.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Patterns/Parser.o )
+[ 6 of 22] Compiling Test.Tasty.Patterns.Eval ( Test/Tasty/Patterns/Eval.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Patterns/Eval.o )
+[ 7 of 22] Compiling Test.Tasty.Patterns ( Test/Tasty/Patterns.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Patterns.o )
+[ 8 of 22] Compiling Test.Tasty.Options.Core ( Test/Tasty/Options/Core.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Options/Core.o )
+[ 9 of 22] Compiling Test.Tasty.Core  ( Test/Tasty/Core.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Core.o )
+[10 of 22] Compiling Test.Tasty.Providers ( Test/Tasty/Providers.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Providers.o )
+[11 of 22] Compiling Test.Tasty.Runners.Reducers ( Test/Tasty/Runners/Reducers.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Runners/Reducers.o )
+[12 of 22] Compiling Test.Tasty.Runners.Utils ( Test/Tasty/Runners/Utils.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Runners/Utils.o )
+[13 of 22] Compiling Test.Tasty.Run   ( Test/Tasty/Run.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Run.o )
+[14 of 22] Compiling Test.Tasty.Ingredients ( Test/Tasty/Ingredients.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Ingredients.o )
+[15 of 22] Compiling Test.Tasty.Options.Env ( Test/Tasty/Options/Env.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Options/Env.o )
+[16 of 22] Compiling Test.Tasty.Ingredients.ListTests ( Test/Tasty/Ingredients/ListTests.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Ingredients/ListTests.o )
+[17 of 22] Compiling Test.Tasty.Ingredients.IncludingOptions ( Test/Tasty/Ingredients/IncludingOptions.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Ingredients/IncludingOptions.o )
+[18 of 22] Compiling Test.Tasty.Ingredients.ConsoleReporter ( Test/Tasty/Ingredients/ConsoleReporter.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Ingredients/ConsoleReporter.o )
+[19 of 22] Compiling Test.Tasty.Ingredients.Basic ( Test/Tasty/Ingredients/Basic.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Ingredients/Basic.o )
+[20 of 22] Compiling Test.Tasty.CmdLine ( Test/Tasty/CmdLine.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/CmdLine.o )
+[21 of 22] Compiling Test.Tasty.Runners ( Test/Tasty/Runners.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty/Runners.o )
+[22 of 22] Compiling Test.Tasty       ( Test/Tasty.hs, .stack-work/dist/x86_64-osx/Cabal-2.4.0.1/build/Test/Tasty.o )
+Installing library in /Users/aleksandra/.stack/snapshots/x86_64-osx/lts-14.6/8.6.5/lib/x86_64-osx-ghc-8.6.5/tasty-1.2.3-5qVTr5oTlGqDEPBimujKY1
+Registering library for tasty-1.2.3..

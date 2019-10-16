@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-10-16 14:36:21.351932 UTC
+2019-10-16 15:30:28.202299 UTC
 
-interface battlefield-0.1.0.0-8CmZqnTevv4DQlKkYwSBkE:FieldModifications 8065
-  interface hash: edef805e4b0d63de38fff80d69cfe168
-  ABI hash: 0ed652d781c72e0da372df590fdd1218
-  export-list hash: 1c37881ba77c99935bedf56ec699407a
+interface battlefield-0.1.0.0-5FxjAk3MfUxBwzZHxsAwJJ:FieldModifications 8065
+  interface hash: 5f38bcaee50753019be14066b0df36f8
+  ABI hash: 27a063825aa8f0a19356b697ad834b79
+  export-list hash: 6e2340de28b8939249f72b2c8ef8336d
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 304d54461d9c82d343c8527b06b0f850
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -17,7 +17,11 @@ interface battlefield-0.1.0.0-8CmZqnTevv4DQlKkYwSBkE:FieldModifications 8065
 exports:
   FieldModifications.assignCards
   FieldModifications.assignFields
+  FieldModifications.checkField
+  FieldModifications.checkWinner
   FieldModifications.closeField
+  FieldModifications.combo
+  FieldModifications.fight
   FieldModifications.putCard
 module dependencies: Types
 package dependencies: MonadRandom-0.5.1.1 array-0.5.3.0
@@ -50,53 +54,82 @@ family instance modules: MonadRandom-0.5.1.1:Control.Monad.Trans.Random.Lazy
                          containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
                          primitive-0.6.4.0:Control.Monad.Primitive
 import  -/  base-4.12.0.0:Data.Foldable efb37371da929e7bc88d896298d2d979
+import  -/  base-4.12.0.0:Data.List 17d0c71c557e42abe196f130788fd997
+import  -/  base-4.12.0.0:Data.OldList e931cf456dc87f11ee6e6fb153bca23e
 import  -/  base-4.12.0.0:GHC.Base c00b75f0b052d05c55ba6a4dd1c63b26
 import  -/  base-4.12.0.0:GHC.List 4014a3c8a3b7c31c8325f6bcf1feea4a
 import  -/  base-4.12.0.0:GHC.Num c2039f03637c68f47b0bbff4c18ec616
 import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
-import  -/  Types f76ea1dd1d2c4fe47575f93bbf95bb77
-  exports: c99b08131a958b98eccb97272359a95d
-  Black 14489e6e1e478e9418fe6498b25cedba
-  Blue 86628e5534b7a64a6c3a5ac3faf62899
-  Card 07a1b70b9906294be44018dfdd15b4a8
-  Card 2eddaddf45f0295f5fbfbba779a9e7e1
-  Closed a0aef2f9d17e0bdb006c0df664c09765
-  Field 02f8d8577d79d8d16f27b75554d7935b
-  Field a5e8e31ebd654aed1c51bdce89a1e481
-  Green 0d18773145fdc0f5bebc088ce9ae326f
-  One 3fe7adac58f06448e478d09be3e5b418
-  Open 32e13061efa20fc2c30072ba0cdab279
-  Player 084e809b613707d9daac3e7dc5838ec3
-  Red b6e6cec9dbcff4db69b0251a1191edcc
-  Two a40f7e53307bc104b38af2573ba4ed0d
-  White 4eb0122608d2d0e6a0fbfb40813cf11d
-  Yellow f4f55aced41a97a4a2540e47bf5d47f3
+import  -/  Types 043f08a974677789d65a44378a7017f6
+  exports: 7005e9ac06608dc00200eab6cb1a8f0b
+  Batallion 63615e18200b1a3edba8ac84312a091f
+  Black 5eea3fc6f0f8a81660d1df37550e2c2f
+  Blue b97285b247ad126f5d2f67d408ef498b
+  Card 071377c9fae21dd5cbc200e7f64f2749
+  Card f56ea284b75d643f0cf3516e9319b706
+  Closed 339b6950e11b87c3cc13aa70cf4bc0bc
+  Combo ee57e920b91561024e8ad25d212333cb
+  Field 9c944e628d67463a6e30c38ee01cec02
+  Field bc869bdca4fff34b50ca5746463a585a
+  FieldState 5d2bff0cd35152ac0d84f794d4df1e90
+  Green 1a51a20f219bdb21d320c80fb8c04660
+  Host f34a0f98c902d161f092cc39e3068f73
+  One a6b96c613b57c6e23e4af3333c00289b
+  Open 76396d585815df5f0fd06ded82f530fa
+  Phalanx 2e4a5fdfe557dc507a4ba76531be0bdf
+  Player c2322114e8ca9252b4ef834669bb1040
+  Red 5de962ed314168f80bcfec89faa42796
+  Skirmish 0713a96832376634634a7ab3ee74dbc6
+  Two 3899e2941e3a31594d088f92503be540
+  Wedge b30bb1e5e3d146226207817b47de38dc
+  White 3a0f75531503707875336b06f63ac668
+  Yellow c20c22777beebcbe3e273879881ba9ac
 import  -/  ghc-prim-0.5.3:GHC.Classes 0f6fd7d7db53fc48f6e1f01803cc6c9d
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  random-1.1:System.Random 92935f2739d08d3c469b92fe5ac17118
 import  -/  random-shuffle-0.0.4:System.Random.Shuffle e8e4e6525aaedcf77df76a1ed69c45ac
-964b40be5bab01e930847b5daffb6bf8
+f87a331639631340cd5b96e9dd03b0f4
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    FieldModifications.$trModule3
                    FieldModifications.$trModule1) -}
-6bcecbadbcce938f37c0a94e713cf290
+db57c28e7553ea89f6414509ec67d907
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS FieldModifications.$trModule2) -}
-7ac0c25a30b0bd47c364f4f30cba62e9
+8d73e6e8589a5d48000d06cf145484ed
   $trModule2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("FieldModifications"#) -}
-317cc5264aad4effde0a45251ca06fb5
+2fd226d83fc97b31330e4b312ffaccdb
   $trModule3 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS FieldModifications.$trModule4) -}
-4dc8c4e96370a0088fbfb1858d6460db
+9317d1fc662b495577d784f41d32feca
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("battlefield-0.1.0.0-8CmZqnTevv4DQlKkYwSBkE"#) -}
-8ed7c6ebd876ac647135b62322f7f221
+     Unfolding: ("battlefield-0.1.0.0-5FxjAk3MfUxBwzZHxsAwJJ"#) -}
+fd8b3cb9e49426f499e5da83c888894a
+  $wcheckField ::
+    [Types.Card]
+    -> [Types.Card] -> Types.FieldState -> Types.FieldState
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U>, Inline: [2],
+     Unfolding: (\ (ww :: [Types.Card])
+                   (ww1 :: [Types.Card])
+                   (ww2 :: Types.FieldState) ->
+                 case ww2 of wild {
+                   Types.Closed ds -> wild
+                   Types.Open
+                   -> case FieldModifications.combo ww of wild1 {
+                        GHC.Maybe.Nothing -> Types.Open
+                        GHC.Maybe.Just ipv
+                        -> case FieldModifications.combo ww1 of wild2 {
+                             GHC.Maybe.Nothing -> Types.Open
+                             GHC.Maybe.Just ipv1
+                             -> case Types.$fOrdCombo_$ccompare ipv ipv1 of wild3 {
+                                  DEFAULT -> FieldModifications.checkField2
+                                  GHC.Types.GT -> FieldModifications.checkField1 } } } }) -}
+263a08bbda888b8a5fa2dac0aa151c68
   $wcloseField ::
     [Types.Field] -> GHC.Prim.Int# -> Types.Player -> [Types.Field]
   {- Arity: 3, Strictness: <L,U><S,U><L,U>, Inline: [2],
@@ -148,29 +181,41 @@ import  -/  random-shuffle-0.0.4:System.Random.Shuffle e8e4e6525aaedcf77df76a1ed
                                  1# -> GHC.Types.: @ Types.Field y1 n10 } }
                       } in
                       $wgo6 w y }) -}
-29d7259d1a6c4ad4008867a131098c59
+ccdfe68e6c978574ceb5c4bd170fce9e
+  $wfiveFields ::
+    [Types.Field]
+    -> GHC.Prim.Int# -> GHC.Types.Int -> GHC.Maybe.Maybe Types.Player
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><S,1*U><L,1*U(U)>,
+     Inline: [2] -}
+89246aaa42d70187b76abffa63603b04
   $wgo :: GHC.Prim.Int# -> (# Types.Card, [Types.Card] #)
   {- Arity: 1, Strictness: <L,U>, Inline: [2] -}
-85b946240ca8f41314ec5f00d2d71930
+03254bdbf61e4348f29b959e910bc32d
   $wputCard ::
     [Types.Field]
     -> GHC.Prim.Int# -> Types.Player -> Types.Card -> [Types.Field]
   {- Arity: 4, Strictness: <S,U><S,U><L,1*U><L,U>, Inline: [2] -}
-7a79b9f485ff87eb2187802838c7e5c7
+ace4259da1c95817699980759d4233ba
+  $wthreeFieldsNear ::
+    [Types.Field]
+    -> GHC.Prim.Int# -> GHC.Types.Int -> GHC.Maybe.Maybe Types.Player
+  {- Arity: 3, HasNoCafRefs, Strictness: <S,1*U><S,1*U><L,1*U(1*U)>,
+     Inline: [2] -}
+b1093db5c16dace515ebfe0ecf8c4e02
   $wunsafeDrop :: GHC.Prim.Int# -> [a1] -> [a1]
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U><S,1*U>,
      Inline: [2] -}
-82d3020eecefd9f5f7313ea70e35173e
+5198ef1ec5be6839fbc1cd8dd70b0ac9
   $wxs :: GHC.Prim.Int# -> (# Types.Field, [Types.Field] #)
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [2] -}
-c3e8041d252bdb8d76e7c6f6b3c2372c
+d51ee5b20368ddb4066a4c7555ed1baf
   assignCards :: GHC.Types.IO [Types.Card]
   {- Arity: 1, Strictness: <S,U>,
      Unfolding: InlineRule (0, True, True)
                 FieldModifications.assignCards1
                   `cast`
                 (Sym (GHC.Types.N:IO[0] <[Types.Card]>_R)) -}
-b7e25f9640bb7ef43e1d02c4a95abec8
+1ed374e79ecb52f8884fcfa3eb284cdf
   assignCards1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, [Types.Card] #)
@@ -185,7 +230,7 @@ b7e25f9640bb7ef43e1d02c4a95abec8
                         var#
                         s of ds1 { (#,#) ipv ipv1 ->
                  (# ipv, FieldModifications.assignCards2 ipv1 #) } }) -}
-c9d653863d4a029f30d8a20e0f31ef6a
+223663ffca25fd1845547d4b4ce0a288
   assignCards2 :: System.Random.StdGen -> [Types.Card]
   {- Unfolding: (System.Random.Shuffle.shuffle'
                    @ System.Random.StdGen
@@ -193,24 +238,56 @@ c9d653863d4a029f30d8a20e0f31ef6a
                    System.Random.$fRandomGenStdGen
                    FieldModifications.assignCards_cards
                    FieldModifications.assignCards3) -}
-c8624f0a83ad82577f862cbb4fb7de25
+a4155b988bf30e8b287d0b84bd2cf66c
   assignCards3 :: GHC.Types.Int
   {- Unfolding: (case GHC.List.$wlenAcc
                         @ Types.Card
                         FieldModifications.assignCards_cards
                         0# of ww2 { DEFAULT ->
                  GHC.Types.I# ww2 }) -}
-02cc34c938e89ac7cdb466402e9d8ee7
+c3e84436037bc775035b677f8c8a7d7b
   assignCards_cards :: [Types.Card]
   {- Unfolding: (case FieldModifications.$wgo
                         1# of ww { (#,#) ww1 ww2 ->
                  GHC.Types.: @ Types.Card ww1 ww2 }) -}
-4a16da23b7b921f5ccbe2ad45f742ce2
+10cc6f50b159dbed157594b53d19c63a
   assignFields :: [Types.Field]
   {- Unfolding: (case FieldModifications.$wxs
                         9# of ww { (#,#) ww1 ww2 ->
                  GHC.Types.: @ Types.Field ww1 ww2 }) -}
-42e634c80df606259652216acdbbb05a
+5e249c4042c7176c55bb8b8c9a3a98f3
+  checkField :: Types.Field -> Types.FieldState
+  {- Arity: 1, Strictness: <S(LLS),1*U(U,U,1*U)>, Inline: [2],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: Types.Field) ->
+                 case w of ww { Types.Field ww1 ww2 ww3 ->
+                 FieldModifications.$wcheckField ww1 ww2 ww3 }) -}
+6d44b784c88e0987ef73dc4883aaa230
+  checkField1 :: Types.FieldState
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Types.Closed Types.One) -}
+9f574a9cf395f059f68f5833f2ec4dc2
+  checkField2 :: Types.FieldState
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (Types.Closed Types.Two) -}
+c99f0a9f2553c56831be34688176492f
+  checkWinner :: [Types.Field] -> GHC.Maybe.Maybe Types.Player
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,U>,
+     Unfolding: (\ (fields :: [Types.Field]) ->
+                 case FieldModifications.$wthreeFieldsNear
+                        fields
+                        0#
+                        FieldModifications.checkWinner1 of wild {
+                   GHC.Maybe.Nothing
+                   -> FieldModifications.$wfiveFields
+                        fields
+                        0#
+                        FieldModifications.checkWinner1
+                   GHC.Maybe.Just a -> wild }) -}
+4d97affbf027a3791036c35967dbc65c
+  checkWinner1 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0#) -}
+5295592b8914356bc5e6eec3ae8e6609
   closeField ::
     [Types.Field] -> GHC.Types.Int -> Types.Player -> [Types.Field]
   {- Arity: 3, Strictness: <L,U><S(S),1*U(U)><L,U>, Inline: [2],
@@ -220,7 +297,27 @@ c8624f0a83ad82577f862cbb4fb7de25
                    (w2 :: Types.Player) ->
                  case w1 of ww { GHC.Types.I# ww1 ->
                  FieldModifications.$wcloseField w ww1 w2 }) -}
-519c2dde62541c9a56c719442d1d03a4
+747f5b7e7642b77c7b773e16ecc2aaf1
+  combo :: [Types.Card] -> GHC.Maybe.Maybe Types.Combo
+  {- Arity: 1, Strictness: <S,U> -}
+54aceb7943b8f92b32aed9269515c656
+  fight ::
+    GHC.Maybe.Maybe Types.Combo
+    -> GHC.Maybe.Maybe Types.Combo -> Types.FieldState
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (ds :: GHC.Maybe.Maybe Types.Combo)
+                   (ds1 :: GHC.Maybe.Maybe Types.Combo) ->
+                 case ds of wild {
+                   GHC.Maybe.Nothing -> Types.Open
+                   GHC.Maybe.Just ipv
+                   -> case ds1 of wild1 {
+                        GHC.Maybe.Nothing -> Types.Open
+                        GHC.Maybe.Just ipv1
+                        -> case Types.$fOrdCombo_$ccompare ipv ipv1 of wild2 {
+                             DEFAULT -> FieldModifications.checkField2
+                             GHC.Types.GT -> FieldModifications.checkField1 } } }) -}
+0d84fd578df1aa51f7e984a407df3040
   putCard ::
     [Types.Field]
     -> GHC.Types.Int -> Types.Player -> Types.Card -> [Types.Field]

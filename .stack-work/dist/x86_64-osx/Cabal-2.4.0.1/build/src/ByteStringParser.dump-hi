@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-10-16 14:36:21.541104 UTC
+2019-10-16 15:30:28.504251 UTC
 
-interface battlefield-0.1.0.0-8CmZqnTevv4DQlKkYwSBkE:ByteStringParser 8065
-  interface hash: 3fb37eefb38031a92896d558f95e81f3
-  ABI hash: e47687f435efafd684dac73472130043
-  export-list hash: bae4c4d88cae26c04a5965815730633f
+interface battlefield-0.1.0.0-5FxjAk3MfUxBwzZHxsAwJJ:ByteStringParser 8065
+  interface hash: b086313ed063de00abb1c3f20b3f9b2e
+  ABI hash: 03e29972bd765daa1d7ca9c1c5d4287f
+  export-list hash: 00bbdf85f6f9416531a03146d46eccf9
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 304d54461d9c82d343c8527b06b0f850
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -46,41 +46,41 @@ family instance modules: base-4.12.0.0:Control.Applicative
                          containers-0.6.0.1:Data.Set.Internal containers-0.6.0.1:Data.Tree
 import  -/  base-4.12.0.0:GHC.Base c00b75f0b052d05c55ba6a4dd1c63b26
 import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
-import  -/  Types f76ea1dd1d2c4fe47575f93bbf95bb77
-  exports: c99b08131a958b98eccb97272359a95d
-  Card 2eddaddf45f0295f5fbfbba779a9e7e1
-  Changes 37d1f1136a98fd173e745d93d117d22b
-  Changes 515356681dafb1bc1613cb131376071f
-  Command b3ed86649415f10276c18bbf46384874
-  EmptyCommand 97d3af1d1de0d452170e191eab06fd1e
-  Player 084e809b613707d9daac3e7dc5838ec3
-  Turn 0e2ae9855bfb72b4e999f5c10b60ae83
+import  -/  Types 043f08a974677789d65a44378a7017f6
+  exports: 7005e9ac06608dc00200eab6cb1a8f0b
+  Card f56ea284b75d643f0cf3516e9319b706
+  Changes 55af903f1cc1d9aef6c0c4651fcfd9f9
+  Changes 2afe4fbb6d2e2002eacae58fbe3a9fee
+  Command 972948a7bc6a3f55f0e606c1cf6d121a
+  EmptyCommand dad1bf467025b2a35c0c84d81ace19f9
+  Player c2322114e8ca9252b4ef834669bb1040
+  Turn 875456fe529bfc92f6ebbdc3ba02487d
 import  -/  binary-0.8.6.0:Data.Binary 47a89cefaa44e49e7fd21d133fce6a7e
 import  -/  binary-0.8.6.0:Data.Binary.Class 4a00b809573ad7c27e489f5b66886719
 import  -/  bytestring-0.10.8.2:Data.ByteString.Internal ff13c732dcda19b677c2f5e999517616
 import  -/  bytestring-0.10.8.2:Data.ByteString.Lazy 2f1c3e7310d730fefed76cfb6092806e
-a034c9049f4e5082a9b3f69f774021d1
+47055b2a3ead114c229095fcf34abc87
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (GHC.Types.Module
                    ByteStringParser.$trModule3
                    ByteStringParser.$trModule1) -}
-8b10653da475ae5414c8c5f8549bddf8
+6c9ae4db166278202a5ce0c046213598
   $trModule1 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS ByteStringParser.$trModule2) -}
-94d908400542a0d04177a9c931dfec22
+50dd861380957b867b0c2e0f5dd21ad4
   $trModule2 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("ByteStringParser"#) -}
-be58e27b06195bd2c7fafa624bb113a2
+7966699fa94ceb85fa12f60b2abe989c
   $trModule3 :: GHC.Types.TrName
   {- HasNoCafRefs, Strictness: m1,
      Unfolding: (GHC.Types.TrNameS ByteStringParser.$trModule4) -}
-e64c4b28a07915aa616d447f47b5acc0
+751b2fc2810e000f18e6188a31eed9df
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs,
-     Unfolding: ("battlefield-0.1.0.0-8CmZqnTevv4DQlKkYwSBkE"#) -}
-6b15526775c9e6fbc8e28d5f724d025a
+     Unfolding: ("battlefield-0.1.0.0-5FxjAk3MfUxBwzZHxsAwJJ"#) -}
+b4412073b3ce277b65bb75d18fcd4a88
   decodeCard :: Data.ByteString.Internal.ByteString -> Types.Card
   {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
      Unfolding: (\ (a :: Data.ByteString.Internal.ByteString) ->
@@ -88,7 +88,7 @@ e64c4b28a07915aa616d447f47b5acc0
                    @ Types.Card
                    ByteStringParser.decodeCard1
                    (Data.ByteString.Lazy.fromStrict a)) -}
-727efa3ac09d08572084d4aec2544d05
+2091bf622f0f64bed5c36645efbf9632
   decodeCard1 :: Data.Binary.Get.Decoder Types.Card
   {- Unfolding: (Data.Binary.Get.$wpoly_go
                    @ Types.Card
@@ -102,7 +102,7 @@ e64c4b28a07915aa616d447f47b5acc0
                          0#
                          (Data.Binary.Get.Internal.$WDone @ Types.Card)))
                    0#) -}
-c25467904c312f850528d23c0611c63d
+1b7886a213f8ff39d9869ac8d7c1532d
   decodeCards :: Data.ByteString.Internal.ByteString -> [Types.Card]
   {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
      Unfolding: (\ (a :: Data.ByteString.Internal.ByteString) ->
@@ -110,7 +110,7 @@ c25467904c312f850528d23c0611c63d
                    @ [Types.Card]
                    ByteStringParser.decodeCards1
                    (Data.ByteString.Lazy.fromStrict a)) -}
-1757a168bad8633a1ee4022ea5276d55
+26c9d6d9cccd85da6cadbaa2a4ebe321
   decodeCards1 :: Data.Binary.Get.Decoder [Types.Card]
   {- Unfolding: (Data.Binary.Get.$wpoly_go
                    @ [Types.Card]
@@ -126,7 +126,7 @@ c25467904c312f850528d23c0611c63d
                          0#
                          (Data.Binary.Get.Internal.$WDone @ [Types.Card])))
                    0#) -}
-adcd17b8e18f0b1fe0044d37638fcff0
+238249edf424349b14bdc4f7a48cd5cd
   decodeChanges ::
     GHC.Maybe.Maybe Data.ByteString.Internal.ByteString
     -> Types.Changes
@@ -140,7 +140,7 @@ adcd17b8e18f0b1fe0044d37638fcff0
                         @ Types.Changes
                         ByteStringParser.decodeChanges1
                         (Data.ByteString.Lazy.fromStrict a) }) -}
-f1db7c9cf6f8802478357031201eb86f
+9f1857a846075f294f2bda7401aa1651
   decodeChanges1 :: Data.Binary.Get.Decoder Types.Changes
   {- Unfolding: (Data.Binary.Get.$wpoly_go
                    @ Types.Changes
@@ -156,7 +156,7 @@ f1db7c9cf6f8802478357031201eb86f
                          0#
                          ByteStringParser.decodeChanges2))
                    0#) -}
-7fca385a92eac247aa33e109206ed8de
+23ec43a54ba47f242291f2efbddd6379
   decodeChanges2 ::
     Data.ByteString.Internal.ByteString
     -> [Types.StateChanges]
@@ -169,11 +169,11 @@ f1db7c9cf6f8802478357031201eb86f
                    @ Types.Changes
                    dt
                    (Types.Changes a1) }) -}
-69725d5fd430cadc10a04f17d6c725e1
+21e7650688ac134cf2a9f314d453e435
   decodeChanges3 :: Types.Changes
   {- HasNoCafRefs, Strictness: m,
      Unfolding: (Types.Changes (GHC.Types.[] @ Types.StateChanges)) -}
-5f8664a4d842dc78b3e33e95c4122f10
+58d1a1c519dfe19cb6615a5ebc7a6a9b
   decodeCommand ::
     GHC.Maybe.Maybe Data.ByteString.Internal.ByteString
     -> Types.Command
@@ -187,7 +187,7 @@ f1db7c9cf6f8802478357031201eb86f
                         @ Types.Command
                         ByteStringParser.decodeCommand1
                         (Data.ByteString.Lazy.fromStrict b) }) -}
-c381c254316e53dcf4d18174762eb8b7
+0bf865d51fd83599fa2f2da99964e49f
   decodeCommand1 :: Data.Binary.Get.Decoder Types.Command
   {- Unfolding: (Data.Binary.Get.$wpoly_go
                    @ Types.Command
@@ -201,7 +201,7 @@ c381c254316e53dcf4d18174762eb8b7
                          0#
                          (Data.Binary.Get.Internal.$WDone @ Types.Command)))
                    0#) -}
-24f5ce1cfe9a2195eeddfaa6e6936e00
+598c2ea2ebed94a0257310cc3b3777dd
   decodePlayer :: Data.ByteString.Internal.ByteString -> Types.Player
   {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
      Unfolding: (\ (a :: Data.ByteString.Internal.ByteString) ->
@@ -209,7 +209,7 @@ c381c254316e53dcf4d18174762eb8b7
                    @ Types.Player
                    ByteStringParser.decodePlayer1
                    (Data.ByteString.Lazy.fromStrict a)) -}
-b7d117030c394fddcd2d71a1ae7be030
+f4af844b9e2ed95624ba6933a803a259
   decodePlayer1 :: Data.Binary.Get.Decoder Types.Player
   {- Unfolding: (Data.Binary.Get.$wpoly_go
                    @ Types.Player
@@ -223,7 +223,7 @@ b7d117030c394fddcd2d71a1ae7be030
                          0#
                          (Data.Binary.Get.Internal.$WDone @ Types.Player)))
                    0#) -}
-20ad59d85c3d6e9ff3e71bd176180289
+abeddc54affdad1b6499a8c89c33379f
   decodeTurn :: Data.ByteString.Internal.ByteString -> Types.Turn
   {- Arity: 1, Strictness: <L,1*U(U,U,U,U)>,
      Unfolding: (\ (b :: Data.ByteString.Internal.ByteString) ->
@@ -231,7 +231,7 @@ b7d117030c394fddcd2d71a1ae7be030
                    @ Types.Turn
                    ByteStringParser.decodeTurn1
                    (Data.ByteString.Lazy.fromStrict b)) -}
-43a7ae0a9ce2bbcd794217fd7f0180c9
+853d74df6374f0a318bc985a5bf095e2
   decodeTurn1 :: Data.Binary.Get.Decoder Types.Turn
   {- Unfolding: (Data.Binary.Get.$wpoly_go
                    @ Types.Turn
@@ -245,7 +245,7 @@ b7d117030c394fddcd2d71a1ae7be030
                          0#
                          (Data.Binary.Get.Internal.$WDone @ Types.Turn)))
                    0#) -}
-670ca72c5cd306e0bf3c5d0030743fd4
+0bf2fcd0697db41b6fc5c5f8653640ff
   encode ::
     Data.Binary.Class.Binary a =>
     a -> Data.ByteString.Internal.ByteString

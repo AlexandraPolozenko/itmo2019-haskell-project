@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-10-16 14:36:24.948065 UTC
+2019-10-16 15:30:29.800564 UTC
 
 interface main:Graphics 8065
-  interface hash: b5790b70d973e34bcdceed70916b5e45
-  ABI hash: 083645412929c5f5f820a04c219eed8d
-  export-list hash: f154abc3bc2f5c03baa0a9aa197c4042
+  interface hash: 9cee92b791c125e7d43d73122542900d
+  ABI hash: c807f03ad0e36bb56339d54598c95e62
+  export-list hash: 71bbcbb016f2ece90658b9ce8d2f3bc2
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 49921c01f030bc2f732166d557e7b312
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -63,7 +63,7 @@ import  -/  base-4.12.0.0:GHC.Num c2039f03637c68f47b0bbff4c18ec616
 import  -/  base-4.12.0.0:GHC.Real af2b985dd29515c375fb78b2c9298d42
 import  -/  base-4.12.0.0:GHC.Show 838a5d039379d82d9626aae53dfce276
 import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
-import  -/  battlefield-0.1.0.0:Types f76ea1dd1d2c4fe47575f93bbf95bb77
+import  -/  battlefield-0.1.0.0:Types 043f08a974677789d65a44378a7017f6
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss 4d36f7d6f882fc4a32496cd61c986b4c
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Color 6bf902405cc88a6ba6ca7ca3b4cb75c6
@@ -71,9 +71,9 @@ import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Display 82cc33b081e2725cf7390296a
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Data.Picture 97e7ac281e7ef640aa6cb060a903dabc
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.IO.Game c924360cb0ed7353541d6884901050f2
 import  -/  gloss-rendering-1.13.1.1:Graphics.Gloss.Internals.Data.Picture ecebad8b9e3a818c032b6108499f3acd
-import  -/  GameEvents 6949b3b830d804bed20705996881ee8f
-  exports: c80356c5632c6cf724673559fc0c9de0
-  handler d1aa8fac725f746ba234156eb238e98e
+import  -/  GameEvents d001bd525886495ad92701ad38f27bb6
+  exports: 96744c26612705fcc9fa9798ee20a066
+  handler 41293c92ffbf79911eb75108ca398bcc
 376d0d1dcd0d11164d3f17659e4d85ed
   $trModule :: GHC.Types.Module
   {- HasNoCafRefs, Strictness: m,
@@ -94,19 +94,19 @@ e38ebe505f88d67dfb7999ae1387963e
 7afdae98586f54130cdda0b41b12c51b
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-98557ec3c69e8eff8d46c685f0baf2e4
+5b1b454256b756cf5452b010ad2a1189
   $wdrawField ::
     GHC.Types.Int
     -> [Types.Field]
     -> (# [Graphics.Gloss.Internals.Data.Picture.Picture] #)
   {- Arity: 2, Strictness: <L,U(U)><S,1*U>, Inline: [2] -}
-627199ad80faad4f1a7ffb49521d4719
+a2e123df1f7686512f37412afc72aab2
   $wdrawHand ::
     GHC.Types.Float
     -> [Types.Card]
     -> (# [Graphics.Gloss.Internals.Data.Picture.Picture] #)
   {- Arity: 2, Strictness: <L,U(U)><S,1*U>, Inline: [2] -}
-290989f54bb9f0eea58ee084bf0d77a5
+31718d6f728aaf948b5ba76570711707
   $wdrawPicture ::
     Types.Player
     -> [Types.Field]
@@ -175,14 +175,14 @@ e38ebe505f88d67dfb7999ae1387963e
                                      Types.Two -> Graphics.startGameDraw4 })
                                   (GHC.Types.[]
                                      @ Graphics.Gloss.Internals.Data.Picture.Picture))))) #)) -}
-dc9a03916cc8d17c983472eb377bed82
+653a9a0f2dfd77fd24aaebf1363d7097
   startGameDraw :: Types.ClientState -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 Graphics.startGameDraw1
                   `cast`
                 (<Types.ClientState>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-cc583c6d13a95bf666194e9262eb67b7
+904c36d69d790375e335cefa2ac71c3c
   startGameDraw1 ::
     Types.ClientState
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -264,7 +264,7 @@ a29faf3ab536583c58ec8b73faa4486e
      Unfolding: (Graphics.Gloss.Internals.Data.Picture.Color
                    Graphics.Gloss.Data.Color.blue
                    Graphics.startGameDraw20) -}
-83be007650c533a7ddbae8e2bf182291
+9f2b2109564664096511270999592655
   startGameDraw2 ::
     GHC.Types.Float
     -> Types.ClientState
@@ -288,7 +288,7 @@ a29faf3ab536583c58ec8b73faa4486e
 b71a84ce8f5a88f993c095978bc1c9fc
   startGameDraw22 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("Player 1"#) -}
-975098069d3a15d288faf070d1103be5
+8f4c222b167e5c0b84e89c147807c573
   startGameDraw23 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
@@ -301,7 +301,7 @@ da4791afee6024e046e0d5a01aa2adc8
 08dfc63418e8d4d8b48344d395da945d
   startGameDraw25 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: (" win"#) -}
-b837f4d7a2d319aec6c3ac409e6fd26f
+ae32bec15767efcf09aa9b37db82770c
   startGameDraw26 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Base.++
                    @ GHC.Types.Char
@@ -316,7 +316,7 @@ ac3513bc49c176656ea31ef9e530f971
 1ed2efaab1b1b1b2bc6d68b2337eda6d
   startGameDraw29 :: GHC.Types.Float
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# -25.0#) -}
-38270db5a8e1acdfebf123eb9437381f
+cc9c56eb205078bb5a0d869a2381cbc3
   startGameDraw3 ::
     Types.ClientState
     -> GHC.Prim.State# GHC.Prim.RealWorld

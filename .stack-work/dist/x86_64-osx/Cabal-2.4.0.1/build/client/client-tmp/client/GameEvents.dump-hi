@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-10-16 14:36:24.701695 UTC
+2019-10-16 15:30:29.563607 UTC
 
 interface main:GameEvents 8065
-  interface hash: 8e1e0c155f8657ad6cc3355a4c8055ac
-  ABI hash: 6949b3b830d804bed20705996881ee8f
-  export-list hash: c80356c5632c6cf724673559fc0c9de0
+  interface hash: 37e9a8dfd71eee9fc9762413b81bc88f
+  ABI hash: d001bd525886495ad92701ad38f27bb6
+  export-list hash: 96744c26612705fcc9fa9798ee20a066
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 49921c01f030bc2f732166d557e7b312
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -70,9 +70,9 @@ import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
 import  -/  base-4.12.0.0:System.Exit 3c945ec7c596067c067092c41083c3d0
 import  -/  base-4.12.0.0:System.IO c961e5ee6731c0683a6e879272c9e9f6
 import  -/  base-4.12.0.0:System.Timeout f4b6f61f47ee3e9225367498615e6a67
-import  -/  battlefield-0.1.0.0:ByteStringParser e47687f435efafd684dac73472130043
-import  -/  battlefield-0.1.0.0:FieldModifications 0ed652d781c72e0da372df590fdd1218
-import  -/  battlefield-0.1.0.0:Types f76ea1dd1d2c4fe47575f93bbf95bb77
+import  -/  battlefield-0.1.0.0:ByteStringParser 03e29972bd765daa1d7ca9c1c5d4287f
+import  -/  battlefield-0.1.0.0:FieldModifications 27a063825aa8f0a19356b697ad834b79
+import  -/  battlefield-0.1.0.0:Types 043f08a974677789d65a44378a7017f6
 import  -/  ghc-prim-0.5.3:GHC.Classes 0f6fd7d7db53fc48f6e1f01803cc6c9d
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
 import  -/  gloss-1.13.0.1:Graphics.Gloss.Interface.IO.Game c924360cb0ed7353541d6884901050f2
@@ -99,7 +99,7 @@ a951a7ffc306a6d59e0f28b5899b1a7c
 2317c492471ac9d1d1d4bb5bc3ab9b0d
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-d1aa8fac725f746ba234156eb238e98e
+41293c92ffbf79911eb75108ca398bcc
   handler ::
     Graphics.Gloss.Internals.Interface.Event.Event
     -> Types.ClientState -> GHC.Types.IO Types.ClientState
@@ -111,7 +111,7 @@ d1aa8fac725f746ba234156eb238e98e
                 (<Graphics.Gloss.Internals.Interface.Event.Event>_R
                  ->_R <Types.ClientState>_R
                  ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R)) -}
-76bfab56011ebc7e5e0ba4107061593b
+bb4d0fa84f2b320e418962eaa1a3aa78
   handler1 ::
     Graphics.Gloss.Internals.Interface.Event.Event
     -> Types.ClientState

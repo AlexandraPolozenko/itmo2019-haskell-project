@@ -58,8 +58,12 @@ executable client
 test-suite hw3-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
-  main-is:             Spec.hs
+  main-is:             Main.hs
+  other-modules:       FieldModificationTests WinnerChecksTests
   build-depends:       base
                        , battlefield
-  ghc-options:         -Wall -Werror -with-rtsopts=-N -fno-ghci-sandbox
+                       , tasty
+                       , tasty-hunit
+                       , tasty-quickcheck
+  ghc-options:         -Wall -Werror -fno-ghci-sandbox
   default-language:    Haskell2010

@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2019-10-16 14:36:25.050233 UTC
+2019-10-16 15:30:29.903655 UTC
 
 interface main:Client 8065
-  interface hash: 59fec30ff6b2fd7b473e2966d75ff17a
-  ABI hash: 87ab95b0f8f533a428c4b80fd7ea87e5
-  export-list hash: 3e9538db47df1c6c2eac94f603d23ac5
+  interface hash: 981ec828bfa53d649211a9ceaa3fb62d
+  ABI hash: bb142dc768a5b69658a6f4e2a9709a14
+  export-list hash: c425ffa5b70e9fca58dec97d779ca04f
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: 49921c01f030bc2f732166d557e7b312
   opt_hash: 6faf2de08de32d19db9870899d88e59a
@@ -65,13 +65,13 @@ import  -/  base-4.12.0.0:GHC.List 4014a3c8a3b7c31c8325f6bcf1feea4a
 import  -/  base-4.12.0.0:GHC.Show 838a5d039379d82d9626aae53dfce276
 import  -/  base-4.12.0.0:Prelude 3c779dfd6448bdd8e234c336802c2acb
 import  -/  base-4.12.0.0:System.IO c961e5ee6731c0683a6e879272c9e9f6
-import  -/  battlefield-0.1.0.0:ByteStringParser e47687f435efafd684dac73472130043
-import  -/  battlefield-0.1.0.0:FieldModifications 0ed652d781c72e0da372df590fdd1218
-import  -/  battlefield-0.1.0.0:Types f76ea1dd1d2c4fe47575f93bbf95bb77
+import  -/  battlefield-0.1.0.0:ByteStringParser 03e29972bd765daa1d7ca9c1c5d4287f
+import  -/  battlefield-0.1.0.0:FieldModifications 27a063825aa8f0a19356b697ad834b79
+import  -/  battlefield-0.1.0.0:Types 043f08a974677789d65a44378a7017f6
 import  -/  ghc-prim-0.5.3:GHC.Types 57064c9f957b09bc2e360061ad5cae0b
-import  -/  Graphics 083645412929c5f5f820a04c219eed8d
-  exports: f154abc3bc2f5c03baa0a9aa197c4042
-  startGameDraw dc9a03916cc8d17c983472eb377bed82
+import  -/  Graphics c807f03ad0e36bb56339d54598c95e62
+  exports: 71bbcbb016f2ece90658b9ce8d2f3bc2
+  startGameDraw 653a9a0f2dfd77fd24aaebf1363d7097
 import  -/  network-2.8.0.1:Network.Socket 2fb10212ee6ec3cda4f5f95de27378a3
 import  -/  network-2.8.0.1:Network.Socket.ByteString 6f7c7de848eff00b79f890f81b0bb183
 import  -/  network-2.8.0.1:Network.Socket.Internal 3199c2e7c8102952472c2e79cef4a0b4
@@ -96,7 +96,7 @@ c7811ce6af9ac4f49e297a546f0521ea
 f9a372e66737c68098d72dbad6aa670e
   $trModule4 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("main"#) -}
-52860ee56fa07d0ed0a57675a79f4ab4
+0ca2d4bce7bb4e62b7de57fc7779fe36
   client :: Network.Socket.Types.PortNumber -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <L,1*U(U)><S,U>,
      Unfolding: InlineRule (0, True, True)
@@ -104,7 +104,7 @@ f9a372e66737c68098d72dbad6aa670e
                   `cast`
                 (<Network.Socket.Types.PortNumber>_R
                  ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
-edfbfd3289849b35607f396765a73d64
+1f32e7389fb2bf878f5e9a6f7e336328
   client1 ::
     Network.Socket.Types.PortNumber
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -165,7 +165,7 @@ edfbfd3289849b35607f396765a73d64
                          ->_R Sym (GHC.Types.N:IO[0] <Types.ClientState>_R))
                         GHC.Types.False
                         ipv6 } } } } } } } }) -}
-cfc63fc2379a9e8c2c1ae55164e1d373
+9be22bed137fb0ee06052f13f3145f7d
   client2 ::
     Network.Socket.Types.Socket
     -> GHC.Prim.State# GHC.Prim.RealWorld
@@ -223,7 +223,7 @@ e672a4ba128d5115a83772c5eddcb3bd
 74db614753316547adb203d1806602cf
   client8 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("127.0.0.1"#) -}
-8b6f7d3900f921ad737855b4e7a2b11c
+380ce883ee8f83440c72e4a7d72368b5
   startGame ::
     Network.Socket.Types.Socket -> GHC.Types.IO Types.ClientState
   {- Arity: 2, Strictness: <L,U(U(U),U,U,U,U)><S,U>,
