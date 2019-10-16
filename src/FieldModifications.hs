@@ -5,11 +5,11 @@ import System.Random.Shuffle (shuffle')
 import System.Random (getStdGen)
 
 assignFields :: [Field]
-assignFields = replicate 9 (Field [] [] Open)
+assignFields = [Field [] [] Open | i <- [1 .. 9]]
 
 assignCards :: IO [Card]
 assignCards = 
-  let cards1 = [Card Red i | i <- [1 .. 10]]
+  let cards1 = [Card Red i | i <- [1 .. 10]]	  
       cards2 = [Card Blue i | i <- [1 .. 10]]
       cards3 = [Card Yellow i | i <- [1 .. 10]] 
       cards4 = [Card Green i | i <- [1 .. 10]] 
@@ -29,7 +29,7 @@ putCard fields ind p card =
       (Field comb1 comb2 state) = fields !! (ind - 1)
   in
     case state of 
-      (Closed _) -> fields
+      (Closed pl) -> fields
       _ -> case p of
         One -> 
           if (length comb1) == 3
@@ -45,5 +45,5 @@ closeField :: [Field] -> Int -> Player -> [Field]
 closeField fields ind p = 
   let left = take (ind - 1) fields
       right = drop ind fields
-      (Field comb1 comb2 _) = fields !! (ind - 1)
+      (Field comb1 comb2 state) = fields !! (ind - 1)
   in left ++ [Field comb1 comb2 (Closed p)] ++ right

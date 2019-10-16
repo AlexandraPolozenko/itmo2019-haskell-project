@@ -23,9 +23,25 @@ library
   build-depends:       base >= 4.9 && < 5
   default-language:    Haskell2010
 
-executable mini-shell
-  hs-source-dirs:      app
-  main-is:             Main.hs
+executable server
+  hs-source-dirs:      src
+  main-is:             Server.hs
+  ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                       , battlefield
+                       , network
+                       , bytestring
+                       , random-shuffle
+                       , random
+                       , binary
+                       , word8
+                       , gloss
+                       , mtl
+  default-language:    Haskell2010
+
+executable client
+  hs-source-dirs:      src
+  main-is:             Client.hs
   ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -fno-ghci-sandbox
   build-depends:       base
                        , battlefield
@@ -45,5 +61,5 @@ test-suite hw3-test
   main-is:             Spec.hs
   build-depends:       base
                        , battlefield
-  ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N -fno-ghci-sandbox 
+  ghc-options:         -Wall -Werror -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010

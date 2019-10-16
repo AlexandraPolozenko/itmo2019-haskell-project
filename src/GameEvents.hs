@@ -2,11 +2,12 @@ module GameEvents (handler) where
 
 import Graphics.Gloss.Interface.IO.Game (Event(..),  SpecialKey(..), Key(..), KeyState(..))
 import ByteStringParser (decodeCommand, decodeChanges, encode)
+import qualified Data.ByteString.Char8 as B8 (pack)
 import Control.Monad.IO.Class (liftIO)
+import Network.Socket hiding (send, sendTo, recv, recvFrom)
 import Network.Socket.ByteString (send, recv)
 import System.Exit (exitSuccess)
 import Control.Concurrent (forkIO)
-import System.Timeout (timeout)
 
 import FieldModifications (putCard, closeField)
 import Types (
@@ -16,48 +17,55 @@ import Types (
   , Changes(..)
   , StateChanges(..)
   , FieldState(..)
+  , Card(..)
   , TurnState(..)
   , Command(..)
+  , Suit(..)
   , Turn(..)
   , messageSize
   , defaultCard
   )
 
-timeoutMicroseconds :: Int
-timeoutMicroseconds = 10000000
 
 handler :: Event -> ClientState -> IO ClientState
 handler (EventKey (SpecialKey KeyEsc) Down _ _) _ = exitSuccess
-handler (EventKey (SpecialKey KeySpace) Down _ _) st@(ClientState _ sock _ _ EmptyState) = do
-  ch <- timeout timeoutMicroseconds (recv sock messageSize)
+handler (EventKey (SpecialKey KeySpace) Down _ _) st@(ClientState pl socket fields cards EmptyState) = do
+  liftIO $ print "entered critical block"
+  liftIO $ send socket (B8.pack "ready")
+  liftIO $ print "ready"
+  ch <- liftIO $ recv socket messageSize
   liftIO $ print "recieved chnges"
   let (Changes changes) = decodeChanges ch
   liftIO $ print $ show changes
-  let ((ClientState p _ flds crds _), winner) = proceedChanges st changes
+  let (newSt@(ClientState p sock flds crds _), winner) = proceedChanges st changes
   case winner of
     Nothing -> do
-      return (ClientState p sock flds crds (PutCardTurn Nothing))
+      cmd <- liftIO $ recv socket messageSize
+      liftIO $ print $ "recieved command " ++ (show cmd)
+      case (decodeCommand cmd) of
+        Put -> return (ClientState p sock flds crds (PutCardTurn Nothing))
+        _ -> return newSt
     (Just a) -> return (ClientState p sock flds crds (GameFinished a))
-handler (EventKey (Char c) Down _ _) st@(ClientState p sock fields cards (PutCardTurn Nothing)) = do
+handler (EventKey (Char c) Down _ _) st@(ClientState p socket fields cards (PutCardTurn Nothing)) = do
   let n = getCardNum c 
   if (length cards) <= n
   then return st
-  else return (ClientState p sock fields cards (PutCardTurn (Just (cards !! n))))
-handler (EventKey (Char c) Down _ _) st@(ClientState p sock fields cards (PutCardTurn (Just card))) = do
+  else return (ClientState p socket fields cards (PutCardTurn (Just (cards !! n))))
+handler (EventKey (Char c) Down _ _) st@(ClientState p socket fields cards (PutCardTurn (Just card))) = do
   let n = getFieldNum c 
   if notCorrectField n fields p
   then return st
   else do
-    _ <- forkIO $ send sock (encode (PutCard n p card)) >> print "sent card"
-    com <- timeout timeoutMicroseconds (recv sock messageSize)
+    _ <- forkIO $ send socket (encode (PutCard n p card)) >> print "sent card"
+    com <- liftIO $ recv socket messageSize
     let cmd = decodeCommand com
     liftIO $ print "take card"
     case cmd of
       (Take crd) -> 
         if (crd == defaultCard)
-        then return (ClientState p sock (putCard fields n p card) (filter (\e -> e /= card) cards) EmptyState)
-        else return (ClientState p sock (putCard fields n p card) ((filter (\e -> e /= card) cards) ++ [crd]) EmptyState)
-      _ -> return (ClientState p sock (putCard fields n p card) (filter (\e -> e /= card) cards) EmptyState)
+        then return (ClientState p socket (putCard fields n p card) (filter (\e -> e /= card) cards) EmptyState)
+        else return (ClientState p socket (putCard fields n p card) ((filter (\e -> e /= card) cards) ++ [crd]) EmptyState)
+      _ -> return (ClientState p socket (putCard fields n p card) (filter (\e -> e /= card) cards) EmptyState)
 handler _ w = return w
 
 notCorrectField :: Int -> [Field] -> Player -> Bool
@@ -106,8 +114,8 @@ getCardNum _ = 7
 
 proceedChanges :: ClientState -> [StateChanges] -> (ClientState, Maybe Player)
 proceedChanges st ((Winner p):_) = (st, (Just p))
-proceedChanges (ClientState pl sock fields cards state) ((NewCard f p c):xs) = 
-  proceedChanges (ClientState pl sock (putCard fields f p c) cards state) xs
-proceedChanges (ClientState pl sock fields cards state) ((FieldClosed f p):xs) = 
-  proceedChanges (ClientState pl sock (closeField fields f p) cards state) xs
+proceedChanges (ClientState pl socket fields cards state) ((NewCard f p c):xs) = 
+  proceedChanges (ClientState pl socket (putCard fields f p c) cards state) xs
+proceedChanges (ClientState pl socket fields cards state) ((FieldClosed f p):xs) = 
+  proceedChanges (ClientState pl socket (closeField fields f p) cards state) xs
 proceedChanges st [] = (st, Nothing)

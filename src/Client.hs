@@ -2,16 +2,14 @@
 module Client where
 
 import Network.Socket hiding (send, sendTo, recv, recvFrom)
-import Network.Socket.ByteString (recv)
+import Network.Socket.ByteString (send, recv)
+import Control.Monad.Reader (ReaderT, runReaderT, ask, local, liftIO)
 import Control.Monad.IO.Class (liftIO)
 
 import ByteStringParser (decodePlayer, decodeCards)
 import FieldModifications (assignFields)
 import Graphics (startGameDraw)
 import Types (ClientState(..), TurnState(..), messageSize)
-
-main :: IO ()
-main = client 5005
 
 client :: PortNumber -> IO ()
 client port = withSocketsDo $ do
@@ -24,11 +22,11 @@ client port = withSocketsDo $ do
 
 
 startGame :: Socket -> IO ClientState
-startGame sock = do
+startGame socket = do
   liftIO $ print "game started"
-  p <- recv sock messageSize
+  p <- recv socket messageSize
   let player = decodePlayer p
   let fields = assignFields
-  c <- recv sock messageSize
+  c <- recv socket messageSize
   let cards = decodeCards c
-  return $ ClientState player sock fields cards EmptyState
+  return $ ClientState player socket fields cards EmptyState
